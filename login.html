@@ -2,8 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Member Login</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <h1>Member Login</h1>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p id="errorMessage" style="color: red;"></p>
+  </main>
+
   <script type="module">
+    // Firebase
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
     import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
@@ -19,28 +34,21 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    window.loginUser = function () {
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
 
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           alert("Login successful!");
-          // You can redirect here if needed:
-          // window.location.href = "dashboard.html";
+          window.location.href = "form.html"; // redirect after login
         })
         .catch((error) => {
-          alert("Login failed: " + error.message);
+          document.getElementById("errorMessage").textContent = "Login failed: " + error.message;
         });
-    };
+    });
   </script>
-</head>
-<body>
-  <h2>Login</h2>
-  <input type="email" id="email" placeholder="Email" required />
-  <br />
-  <input type="password" id="password" placeholder="Password" required />
-  <br />
-  <button onclick="loginUser()">Login</button>
 </body>
 </html>
