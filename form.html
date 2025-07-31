@@ -6,66 +6,15 @@
   <title>Buyer/Seller Form</title>
   <link rel="stylesheet" href="styles.css"/>
   <style>
-    .product-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      margin-bottom: 30px;
-      justify-content: space-between;
-    }
-
-    .product-section {
-      flex: 1;
-      min-width: 300px;
-    }
-
-    .product-section h3 {
-      margin-bottom: 10px;
-    }
-
-    .checkbox-columns {
-      display: flex;
-      gap: 30px;
-    }
-
-    .checkbox-column {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      flex: 1;
-    }
-
-    .checkbox-column label {
-      display: flex;
-      align-items: center;
-    }
-
-    input[type="checkbox"] {
-      margin-right: 6px;
-    }
-
-    .form-footer {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    textarea {
-      width: 100%;
-      max-width: 600px;
-      height: 100px;
-      margin: 0 auto 20px auto;
-      display: block;
-    }
-
-    button[type="submit"] {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
+    body {
+      font-family: Arial, sans-serif;
     }
 
     form {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
+      padding: 20px;
+      text-align: center;
     }
 
     input[type="text"],
@@ -76,8 +25,70 @@
       display: block;
       width: 100%;
       max-width: 600px;
-      margin: 10px 0;
+      margin: 10px auto;
       padding: 8px;
+    }
+
+    .product-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+      margin: 40px 0;
+    }
+
+    .product-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .product-section h3 {
+      margin-bottom: 20px;
+    }
+
+    .checkbox-columns {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .checkbox-column {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .checkbox-column label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-align: left;
+    }
+
+    textarea {
+      width: 100%;
+      max-width: 600px;
+      height: 100px;
+      margin: 0 auto 20px auto;
+      display: block;
+      padding: 10px;
+    }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    button[type="submit"] {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
     }
   </style>
 </head>
