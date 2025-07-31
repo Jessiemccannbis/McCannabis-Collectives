@@ -49,9 +49,17 @@
       document.getElementById("googleSignIn").addEventListener("click", () => {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
-          .then(() => {
-            window.location.href = "index.html";
-          })
+          .then((result) => {
+  const user = result.user;
+  const db = getDatabase();
+  set(ref(db, 'users/' + user.uid), {
+    email: user.email,
+    provider: 'google',
+    lastLogin: new Date().toISOString()
+  });
+  window.location.href = "index.html";
+})
+            
           .catch((error) => {
             alert(error.message);
           });
