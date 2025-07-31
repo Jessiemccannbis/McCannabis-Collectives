@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Buyer/Seller Form</title>
@@ -93,21 +96,11 @@
       cursor: pointer;
     }
   </style>
-</head>
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="form.html">Buyer/Seller Form</a></li>
-        <li><a href="cartoon.html">Watch the Cartoon</a></li>
-        <li><a href="#">Member Login</a></li>
-      </ul>
-    </nav>
   </header>
   <main>
     <h1>Buyer/Seller Form</h1>
-    <form>
+    <form id="BuyerSellerForm">
+    
       <input type="text" placeholder="Company Name" required/>
       <input type="text" placeholder="Contact Name" required/>
       <input type="tel" placeholder="Phone Number" required/>
@@ -180,5 +173,50 @@
       </div>
     </form>
   </main>
+  <script>
+    <script>
+  // Your Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyAq2dhntiRGQ10DnKZlxEQr4lDiYrgnYnA",
+    authDomain: "mc-cannabis-collectives-5ba0a.firebaseapp.com",
+    databaseURL: "https://mc-cannabis-collectives-5ba0a-default-rtdb.firebaseio.com",
+    projectId: "mc-cannabis-collectives-5ba0a",
+    storageBucket: "mc-cannabis-collectives-5ba0a.appspot.com",
+    messagingSenderId: "557664144063",
+    appId: "1:557664144063:web:18439d9b1be04202dd940a",
+    measurementId: "G-Z4BG8JXGK2"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+
+  // Form submit handler
+  document.getElementById("BuyerSellerForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const formData = {
+      company_name: form.querySelector('input[placeholder="Company Name"]').value,
+      contact_name: form.querySelector('input[placeholder="Contact Name"]').value,
+      phone: form.querySelector('input[placeholder="Phone Number"]').value,
+      email: form.querySelector('input[placeholder="Company Email"]').value,
+      website: form.querySelector('input[placeholder="Website"]').value,
+      address: form.querySelector('input[placeholder="Company Address"]').value,
+      user_type: form.querySelector('select').value,
+    };
+
+    db.ref("submissions").push(formData)
+      .then(() => {
+        alert("Form submitted successfully!");
+        form.reset();
+      })
+      .catch((error) => {
+        alert("Error submitting form.");
+        console.error(error);
+      });
+  });
+</script>
 </body>
 </html>
