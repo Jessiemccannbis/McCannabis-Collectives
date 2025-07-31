@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Buyer/Seller Form</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #155c4d;
+      background-color: #0e3b2e;
       color: #f4f1ec;
       margin: 0;
       padding: 0;
+      position: relative;
     }
 
-    h1 {
-      text-align: center;
-      padding-top: 20px;
-      color: #f4f1ec;
+    body::after {
+      content: "";
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/1c/Cannabis_leaf.svg'); /* replace with your image if needed */
+      background-repeat: no-repeat;
+      background-size: 400px;
+      opacity: 0.05;
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      width: 400px;
+      height: 400px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
     }
 
     form {
@@ -39,31 +52,38 @@
       max-width: 600px;
       margin: 10px auto;
       padding: 8px;
-      box-sizing: border-box;
+      background-color: #f4f1ec;
+      color: #000;
+      border: none;
+      border-radius: 5px;
     }
 
-    .products-wrapper {
+    h1 {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .product-container {
       display: flex;
+      justify-content: space-between;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 40px;
       margin: 40px 0;
     }
 
     .product-section {
       flex: 1;
-      min-width: 400px;
+      min-width: 300px;
     }
 
     .product-section h3 {
       text-align: center;
       margin-bottom: 20px;
-      color: #f4f1ec;
     }
 
     .checkbox-columns {
       display: flex;
-      gap: 40px;
+      gap: 30px;
       justify-content: center;
     }
 
@@ -93,6 +113,10 @@
       margin: 0 auto 20px auto;
       display: block;
       padding: 10px;
+      background-color: #f4f1ec;
+      color: #000;
+      border: none;
+      border-radius: 5px;
     }
 
     .form-footer {
@@ -101,17 +125,13 @@
     }
 
     button[type="submit"] {
-      background-color: #3b9d75;
-      color: #fff;
-      border: none;
-      padding: 12px 24px;
+      padding: 10px 20px;
       font-size: 16px;
-      cursor: pointer;
+      background-color: #3b9d75;
+      color: white;
+      border: none;
       border-radius: 4px;
-    }
-
-    button[type="submit"]:hover {
-      background-color: #348d67;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -133,7 +153,7 @@
         <option>Both</option>
       </select>
 
-      <div class="products-wrapper">
+      <div class="product-container">
         <!-- Buyer Products -->
         <div class="product-section">
           <h3>Buyer Products</h3>
@@ -191,45 +211,5 @@
       </div>
     </form>
   </main>
-
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyAq2dhntiRGQ10DnKZlxEQr4lDiYrgnYnA",
-      authDomain: "mc-cannabis-collectives-5ba0a.firebaseapp.com",
-      databaseURL: "https://mc-cannabis-collectives-5ba0a-default-rtdb.firebaseio.com",
-      projectId: "mc-cannabis-collectives-5ba0a",
-      storageBucket: "mc-cannabis-collectives-5ba0a.appspot.com",
-      messagingSenderId: "557664144063",
-      appId: "1:557664144063:web:18439d9b1be04202dd940a",
-      measurementId: "G-Z4BG8JXGK2"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
-
-    document.getElementById("BuyerSellerForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const formData = {
-        company_name: form.querySelector('input[placeholder="Company Name"]').value,
-        contact_name: form.querySelector('input[placeholder="Contact Name"]').value,
-        phone: form.querySelector('input[placeholder="Phone Number"]').value,
-        email: form.querySelector('input[placeholder="Company Email"]').value,
-        website: form.querySelector('input[placeholder="Website"]').value,
-        address: form.querySelector('input[placeholder="Company Address"]').value,
-        user_type: form.querySelector('select').value,
-      };
-
-      db.ref("submissions").push(formData)
-        .then(() => {
-          alert("Form submitted successfully!");
-          form.reset();
-        })
-        .catch((error) => {
-          alert("Error submitting form.");
-          console.error(error);
-        });
-    });
-  </script>
 </body>
 </html>
