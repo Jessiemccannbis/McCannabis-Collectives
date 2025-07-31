@@ -2,104 +2,123 @@
 <html lang="en">
 <head>
   <!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Buyer/Seller Form</title>
-  <link rel="stylesheet" href="styles.css"/>
   <style>
-  body {
-    font-family: Arial, sans-serif;
-  }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #155c4d;
+      color: #f4f1ec;
+      margin: 0;
+      padding: 0;
+    }
 
-  form {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-  }
+    h1 {
+      text-align: center;
+      padding-top: 20px;
+      color: #f4f1ec;
+    }
 
-  input[type="text"],
-  input[type="tel"],
-  input[type="email"],
-  input[type="url"],
-  select {
-    display: block;
-    width: 100%;
-    max-width: 600px;
-    margin: 10px auto;
-    padding: 8px;
-  }
+    form {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
 
-  .product-container {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    margin: 40px 0;
-  }
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="url"],
+    select {
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      margin: 10px auto;
+      padding: 8px;
+      box-sizing: border-box;
+    }
 
-  .product-section {
-    width: 100%;
-    max-width: 450px;
-  }
+    .products-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin: 40px 0;
+    }
 
-  .product-section h3 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+    .product-section {
+      flex: 1;
+      min-width: 400px;
+    }
 
-  .checkbox-columns {
-    display: flex;
-    gap: 40px;
-    justify-content: center;
-  }
+    .product-section h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #f4f1ec;
+    }
 
-  .checkbox-column {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    min-width: 200px;
-  }
+    .checkbox-columns {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+    }
 
-  .checkbox-column label {
-    display: block;
-    text-align: left;
-    font-size: 15px;
-    cursor: pointer;
-  }
+    .checkbox-column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 180px;
+    }
 
-  .checkbox-column input[type="checkbox"] {
-    vertical-align: middle;
-    margin-right: 8px;
-    transform: scale(1.1);
-  }
+    .checkbox-column label {
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      cursor: pointer;
+    }
 
-  textarea {
-    width: 100%;
-    max-width: 600px;
-    height: 100px;
-    margin: 0 auto 20px auto;
-    display: block;
-    padding: 10px;
-  }
+    .checkbox-column input[type="checkbox"] {
+      margin-right: 8px;
+      transform: scale(1.1);
+    }
 
-  .form-footer {
-    text-align: center;
-    margin-top: 40px;
-  }
+    textarea {
+      width: 100%;
+      max-width: 600px;
+      height: 100px;
+      margin: 0 auto 20px auto;
+      display: block;
+      padding: 10px;
+    }
 
-  button[type="submit"] {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-</style>
-  </header>
+    .form-footer {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    button[type="submit"] {
+      background-color: #3b9d75;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #348d67;
+    }
+  </style>
+</head>
+<body>
   <main>
     <h1>Buyer/Seller Form</h1>
     <form id="BuyerSellerForm">
-    
       <input type="text" placeholder="Company Name" required/>
       <input type="text" placeholder="Contact Name" required/>
       <input type="tel" placeholder="Phone Number" required/>
@@ -114,34 +133,32 @@
         <option>Both</option>
       </select>
 
-     <div class="product-container">
-  <!-- Buyer Products -->
-  <div class="product-section">
-    <h3>Buyer Products</h3>
-    <div class="checkbox-columns">
-      <div class="checkbox-column">
-        <label><input type="checkbox" />CBD Isolates</label>
-        <label><input type="checkbox" />CBN</label>
-        <label><input type="checkbox" />Flower</label>
-        <label><input type="checkbox" />CBD Biomass</label>
-        <label><input type="checkbox" />THC Biomass</label>
-        <label><input type="checkbox" />CBD Kief</label>
-        <label><input type="checkbox" />THC Kief</label>
-      </div>
-      <div class="checkbox-column">
-        <label><input type="checkbox" />Gummies</label>
-        <label><input type="checkbox" />Edibles</label>
-        <label><input type="checkbox" />Seeds</label>
-        <label><input type="checkbox" />THC Flower</label>
-        <label><input type="checkbox" />CBD Flower</label>
-        <label><input type="checkbox" />CBD Hash</label>
-        <label><input type="checkbox" />THC Hash</label>
-      </div>
-    </div>
-  </div>
-</div>
-        
-      <div class="product-container">
+      <div class="products-wrapper">
+        <!-- Buyer Products -->
+        <div class="product-section">
+          <h3>Buyer Products</h3>
+          <div class="checkbox-columns">
+            <div class="checkbox-column">
+              <label><input type="checkbox" />CBD Isolates</label>
+              <label><input type="checkbox" />CBN</label>
+              <label><input type="checkbox" />Flower</label>
+              <label><input type="checkbox" />CBD Biomass</label>
+              <label><input type="checkbox" />THC Biomass</label>
+              <label><input type="checkbox" />CBD Kief</label>
+              <label><input type="checkbox" />THC Kief</label>
+            </div>
+            <div class="checkbox-column">
+              <label><input type="checkbox" />Gummies</label>
+              <label><input type="checkbox" />Edibles</label>
+              <label><input type="checkbox" />Seeds</label>
+              <label><input type="checkbox" />THC Flower</label>
+              <label><input type="checkbox" />CBD Flower</label>
+              <label><input type="checkbox" />CBD Hash</label>
+              <label><input type="checkbox" />THC Hash</label>
+            </div>
+          </div>
+        </div>
+
         <!-- Seller Products -->
         <div class="product-section">
           <h3>Seller Products</h3>
@@ -174,50 +191,45 @@
       </div>
     </form>
   </main>
+
   <script>
-    <script>
-  // Your Firebase config
-  const firebaseConfig = {
-    apiKey: "AIzaSyAq2dhntiRGQ10DnKZlxEQr4lDiYrgnYnA",
-    authDomain: "mc-cannabis-collectives-5ba0a.firebaseapp.com",
-    databaseURL: "https://mc-cannabis-collectives-5ba0a-default-rtdb.firebaseio.com",
-    projectId: "mc-cannabis-collectives-5ba0a",
-    storageBucket: "mc-cannabis-collectives-5ba0a.appspot.com",
-    messagingSenderId: "557664144063",
-    appId: "1:557664144063:web:18439d9b1be04202dd940a",
-    measurementId: "G-Z4BG8JXGK2"
-  };
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
-
-  // Form submit handler
-  document.getElementById("BuyerSellerForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const form = e.target;
-
-    const formData = {
-      company_name: form.querySelector('input[placeholder="Company Name"]').value,
-      contact_name: form.querySelector('input[placeholder="Contact Name"]').value,
-      phone: form.querySelector('input[placeholder="Phone Number"]').value,
-      email: form.querySelector('input[placeholder="Company Email"]').value,
-      website: form.querySelector('input[placeholder="Website"]').value,
-      address: form.querySelector('input[placeholder="Company Address"]').value,
-      user_type: form.querySelector('select').value,
+    const firebaseConfig = {
+      apiKey: "AIzaSyAq2dhntiRGQ10DnKZlxEQr4lDiYrgnYnA",
+      authDomain: "mc-cannabis-collectives-5ba0a.firebaseapp.com",
+      databaseURL: "https://mc-cannabis-collectives-5ba0a-default-rtdb.firebaseio.com",
+      projectId: "mc-cannabis-collectives-5ba0a",
+      storageBucket: "mc-cannabis-collectives-5ba0a.appspot.com",
+      messagingSenderId: "557664144063",
+      appId: "1:557664144063:web:18439d9b1be04202dd940a",
+      measurementId: "G-Z4BG8JXGK2"
     };
 
-    db.ref("submissions").push(formData)
-      .then(() => {
-        alert("Form submitted successfully!");
-        form.reset();
-      })
-      .catch((error) => {
-        alert("Error submitting form.");
-        console.error(error);
-      });
-  });
-</script>
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    document.getElementById("BuyerSellerForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = {
+        company_name: form.querySelector('input[placeholder="Company Name"]').value,
+        contact_name: form.querySelector('input[placeholder="Contact Name"]').value,
+        phone: form.querySelector('input[placeholder="Phone Number"]').value,
+        email: form.querySelector('input[placeholder="Company Email"]').value,
+        website: form.querySelector('input[placeholder="Website"]').value,
+        address: form.querySelector('input[placeholder="Company Address"]').value,
+        user_type: form.querySelector('select').value,
+      };
+
+      db.ref("submissions").push(formData)
+        .then(() => {
+          alert("Form submitted successfully!");
+          form.reset();
+        })
+        .catch((error) => {
+          alert("Error submitting form.");
+          console.error(error);
+        });
+    });
+  </script>
 </body>
 </html>
