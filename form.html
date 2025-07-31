@@ -35,11 +35,12 @@
                 <option>Both</option>
             </select>
 
-     <style>
+    <style>
   .product-container {
     display: flex;
-    gap: 40px;
     flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 30px;
   }
 
   .product-section {
@@ -51,22 +52,26 @@
     margin-bottom: 10px;
   }
 
-  .checkbox-columns {
+  .checkbox-rows {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 10px;
   }
 
-  .checkbox-column {
-    flex: 1;
+  .checkbox-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 20px;
   }
 
-  .checkbox-column label {
-    display: block;
-    margin-bottom: 8px;
+  .checkbox-row label {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
   }
 
   input[type="checkbox"] {
-    margin-right: 6px;
+    margin-right: 5px;
   }
 </style>
 
@@ -74,8 +79,8 @@
   <!-- Buyer Products -->
   <div class="product-section">
     <h3>Buyer Products</h3>
-    <div class="checkbox-columns">
-      <div class="checkbox-column">
+    <div class="checkbox-rows">
+      <div class="checkbox-row">
         <label><input type="checkbox" /> CBD Isolates</label>
         <label><input type="checkbox" /> CBN</label>
         <label><input type="checkbox" /> Flower</label>
@@ -84,7 +89,7 @@
         <label><input type="checkbox" /> CBD Kief</label>
         <label><input type="checkbox" /> THC Kief</label>
       </div>
-      <div class="checkbox-column">
+      <div class="checkbox-row">
         <label><input type="checkbox" /> Gummies</label>
         <label><input type="checkbox" /> Edibles</label>
         <label><input type="checkbox" /> Seeds</label>
@@ -99,8 +104,8 @@
   <!-- Seller Products -->
   <div class="product-section">
     <h3>Seller Products</h3>
-    <div class="checkbox-columns">
-      <div class="checkbox-column">
+    <div class="checkbox-rows">
+      <div class="checkbox-row">
         <label><input type="checkbox" /> CBD Isolates</label>
         <label><input type="checkbox" /> CBN</label>
         <label><input type="checkbox" /> Flower</label>
@@ -109,7 +114,7 @@
         <label><input type="checkbox" /> CBD Kief</label>
         <label><input type="checkbox" /> THC Kief</label>
       </div>
-      <div class="checkbox-column">
+      <div class="checkbox-row">
         <label><input type="checkbox" /> Gummies</label>
         <label><input type="checkbox" /> Edibles</label>
         <label><input type="checkbox" /> Seeds</label>
@@ -121,8 +126,8 @@
     </div>
   </div>
 </div>
-            <textarea placeholder="Requirements"></textarea>
-            <button type="submit">Submit</button>
+           <center><textarea placeholder="Requirements"></textarea>
+            <button type="submit">Submit</button></center>
         </form>
     </main>
 </body>
