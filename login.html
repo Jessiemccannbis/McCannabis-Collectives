@@ -5,40 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Member Login – McCannabis Collectives</title>
 
-  <!-- Firebase -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import {
-      getAuth,
-      GoogleAuthProvider,
-      signInWithPopup,
-      signInWithEmailAndPassword,
-      createUserWithEmailAndPassword
-    } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+  <!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js"></script>
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyAq2dhnit1RGQ10DnkZ1xEQr4IDiYrgnYnA",
-      authDomain: "mc-cannabis-collectives-5ba0a.firebaseapp.com",
-      projectId: "mc-cannabis-collectives-5ba0a",
-      storageBucket: "mc-cannabis-collectives-5ba0a.appspot.com",
-      messagingSenderId: "557664144063",
-      appId: "1:557664144063:web:2610ce3f342a19c04dd940a"
-    };
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAq2dhntiRGQ10DnKZlxEQr4lDiYrgnYnA",
+    authDomain: "mc-cannabis-collectives-5ba0a.firebaseapp.com",
+    projectId: "mc-cannabis-collectives-5ba0a",
+    storageBucket: "mc-cannabis-collectives-5ba0a.appspot.com",
+    messagingSenderId: "557664144063",
+    appId: "1:557664144063:web:2610cef342a19c04dd940a",
+  };
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
 
-    document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("googleSignIn").addEventListener("click", () => {
-        const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider)
-          .then((result) => {
-            window.location.href = "index.html";
-          })
-          .catch((error) => {
-            alert(error.message);
-          });
+  // Google Sign-in
+  document.getElementById("googleSignIn").addEventListener("click", function () {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+      .then((result) => {
+        window.location.href = "index.html";
+      })
+      .catch((error) => {
+        alert(error.message);
       });
+  });
+
+  // Email Sign-in
+  document.getElementById("emailSignInForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const email = document.getElementById("emailInput").value;
+    const password = document.getElementById("passwordInput").value;
+
+    auth.signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        window.location.href = "index.html";
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  });
+</script>
+  
 
       document.getElementById("emailSignInForm").addEventListener("submit", (e) => {
         e.preventDefault();
