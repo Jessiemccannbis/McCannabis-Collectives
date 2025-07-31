@@ -4,53 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Buyer/Seller Form</title>
+  <link rel="stylesheet" href="styles.css"/>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-
-    header nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-      margin: 0;
-      background-color: #ffffff;
-      border-bottom: 1px solid #ccc;
-    }
-
-    header nav ul li {
-      display: inline;
-    }
-
-    header nav ul li a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-
-    main {
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 28px;
     }
 
     form {
       max-width: 1000px;
       margin: 0 auto;
       padding: 20px;
-      background-color: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       text-align: center;
     }
 
@@ -64,7 +27,6 @@
       max-width: 600px;
       margin: 10px auto;
       padding: 8px;
-      box-sizing: border-box;
     }
 
     .product-container {
@@ -72,16 +34,17 @@
       justify-content: center;
       gap: 60px;
       margin: 40px 0;
-      flex-wrap: wrap;
     }
 
     .product-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 100%;
       max-width: 450px;
     }
 
     .product-section h3 {
-      text-align: center;
       margin-bottom: 20px;
     }
 
@@ -89,25 +52,25 @@
       display: flex;
       gap: 40px;
       justify-content: center;
+      width: 100%;
     }
 
     .checkbox-column {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      min-width: 200px;
+      gap: 8px;
+      width: 100%;
     }
 
     .checkbox-column label {
-      display: inline-block;
-      text-align: left;
-      font-size: 15px;
-      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      justify-content: flex-start;
     }
 
-    .checkbox-column input[type="checkbox"] {
-      margin-right: 8px;
-      vertical-align: middle;
+    input[type="checkbox"] {
+      margin: 0;
     }
 
     textarea {
@@ -128,14 +91,6 @@
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 4px;
-    }
-
-    button[type="submit"]:hover {
-      background-color: #45a049;
     }
   </style>
 </head>
@@ -153,10 +108,10 @@
   <main>
     <h1>Buyer/Seller Form</h1>
     <form>
-      <input type="text" placeholder="Company Name" required />
-      <input type="text" placeholder="Contact Name" required />
-      <input type="tel" placeholder="Phone Number" required />
-      <input type="email" placeholder="Company Email" required />
+      <input type="text" placeholder="Company Name" required/>
+      <input type="text" placeholder="Contact Name" required/>
+      <input type="tel" placeholder="Phone Number" required/>
+      <input type="email" placeholder="Company Email" required/>
       <input type="url" placeholder="Website" />
       <input type="text" placeholder="Company Address" />
 
