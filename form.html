@@ -4,10 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Buyer/Seller Form</title>
-  <link rel="stylesheet" href="styles.css"/>
   <style>
     body {
       font-family: Arial, sans-serif;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    header nav ul li {
+      display: inline;
+    }
+
+    header nav ul li a {
+      text-decoration: none;
+      color: #333;
     }
 
     form {
@@ -27,6 +44,7 @@
       max-width: 600px;
       margin: 10px auto;
       padding: 8px;
+      box-sizing: border-box;
     }
 
     .product-container {
@@ -34,17 +52,16 @@
       justify-content: center;
       gap: 60px;
       margin: 40px 0;
+      flex-wrap: wrap;
     }
 
     .product-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       width: 100%;
       max-width: 450px;
     }
 
     .product-section h3 {
+      text-align: center;
       margin-bottom: 20px;
     }
 
@@ -52,25 +69,25 @@
       display: flex;
       gap: 40px;
       justify-content: center;
-      width: 100%;
     }
 
     .checkbox-column {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      width: 100%;
+      gap: 10px;
+      min-width: 200px;
     }
 
     .checkbox-column label {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      justify-content: flex-start;
+      display: inline-block;
+      text-align: left;
+      font-size: 15px;
+      cursor: pointer;
     }
 
-    input[type="checkbox"] {
-      margin: 0;
+    .checkbox-column input[type="checkbox"] {
+      margin-right: 8px;
+      vertical-align: middle;
     }
 
     textarea {
@@ -108,10 +125,10 @@
   <main>
     <h1>Buyer/Seller Form</h1>
     <form>
-      <input type="text" placeholder="Company Name" required/>
-      <input type="text" placeholder="Contact Name" required/>
-      <input type="tel" placeholder="Phone Number" required/>
-      <input type="email" placeholder="Company Email" required/>
+      <input type="text" placeholder="Company Name" required />
+      <input type="text" placeholder="Contact Name" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <input type="email" placeholder="Company Email" required />
       <input type="url" placeholder="Website" />
       <input type="text" placeholder="Company Address" />
 
