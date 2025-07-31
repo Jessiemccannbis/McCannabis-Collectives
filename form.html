@@ -215,12 +215,10 @@
       </div>
     </form>
   </main>
-  <script type="module">
-  // Import Firebase modules
+<script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
   import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
 
-  // Firebase config
   const firebaseConfig = {
     apiKey: "AIzaSyAq2dhntiRGQ10DnKZlxEQr4lDiYrgnYnA",
     authDomain: "mc-cannabis-collectives-5ba0a.firebaseapp.com",
@@ -231,39 +229,37 @@
     appId: "1:557664144063:web:2610cef342a19c04dd940a"
   };
 
-  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
 
-  // Submit handler
-  document.getElementById("BuyerSellerForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+  document.getElementById("BuyerSellerForm").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  const form = document.getElementById("BuyerSellerForm");
+    const form = document.getElementById("BuyerSellerForm");
 
-  const data = {
-    company_name: form.company_name.value,
-    contact_name: form.contact_name.value,
-    phone: form.phone.value,
-    email: form.email.value,
-    website: form.website.value,
-    address: form.address.value,
-    user_type: form.user_type.value,
-    buyer_products: [...form.querySelectorAll('input[name="buyer_products"]:checked')].map(el => el.value),
-    seller_products: [...form.querySelectorAll('input[name="seller_products"]:checked')].map(el => el.value),
-    requirements: form.requirements.value,
-    timestamp: new Date().toISOString()
-  };
+    const data = {
+      company_name: form.company_name.value,
+      contact_name: form.contact_name.value,
+      phone: form.phone.value,
+      email: form.email.value,
+      website: form.website.value,
+      address: form.address.value,
+      user_type: form.user_type.value,
+      buyer_products: [...form.querySelectorAll('input[name="buyer_products"]:checked')].map(el => el.value),
+      seller_products: [...form.querySelectorAll('input[name="seller_products"]:checked')].map(el => el.value),
+      requirements: form.requirements.value,
+      timestamp: new Date().toISOString()
+    };
 
-  push(ref(db, "form_submissions"), data)
-    .then(() => {
-      alert("Form submitted successfully!");
-      form.reset();
-    })
-    .catch((error) => {
-      alert("Error submitting form: " + error.message);
-    });
-});
+    push(ref(db, "form_submissions"), data)
+      .then(() => {
+        alert("Form submitted successfully!");
+        form.reset();
+      })
+      .catch((error) => {
+        alert("Error submitting form: " + error.message);
+      });
+  });
 </script>
 </body>
 </html>
