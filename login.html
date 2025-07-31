@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAq2dhntiRGQ10DnKZlxEQr4lDiYrgnYnA",
+      authDomain: "mc-cannabis-collectives-5ba0a.firebaseapp.com",
+      projectId: "mc-cannabis-collectives-5ba0a",
+      storageBucket: "mc-cannabis-collectives-5ba0a.appspot.com",
+      messagingSenderId: "557664144063",
+      appId: "1:557664144063:web:2610cef342a19c04dd940a"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.loginUser = function () {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          alert("Login successful!");
+          // You can redirect here if needed:
+          // window.location.href = "dashboard.html";
+        })
+        .catch((error) => {
+          alert("Login failed: " + error.message);
+        });
+    };
+  </script>
+</head>
+<body>
+  <h2>Login</h2>
+  <input type="email" id="email" placeholder="Email" required />
+  <br />
+  <input type="password" id="password" placeholder="Password" required />
+  <br />
+  <button onclick="loginUser()">Login</button>
+</body>
+</html>
