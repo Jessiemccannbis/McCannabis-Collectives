@@ -35,82 +35,75 @@
                 <option>Both</option>
             </select>
 
-            <h3>Buyer Products</h3>
-            <label><input type="checkbox"/> CBD Isolates</label>
-            <label><input type="checkbox"/> CBN</label>
-            <label><input type="checkbox"/> Flower</label>
-            <label><input type="checkbox"/> CBD Biomass</label>
-            <label><input type="checkbox"/> THC Biomass</label>
-            <label><input type="checkbox"/> CBD Kief</label>
-            <label><input type="checkbox"/> THC Kief</label>
-            <label><input type="checkbox"/> Gummies</label>
-            <label><input type="checkbox"/> Edibles</label>
-            <label><input type="checkbox"/> Seeds</label>
-            <label><input type="checkbox"/> THC Flower</label>
-            <label><input type="checkbox"/> CBD Flower</label>
-            <label><input type="checkbox"/> CBD Hash</label>
-            <label><input type="checkbox"/> THC Hash</label>
-
-            <h3>Seller Products</h3>
-            <label><input type="checkbox"/> CBD Isolates</label>
-            <label><input type="checkbox"/> CBN</label>
-            <label><input type="checkbox"/> Flower</label>
-            <label><input type="checkbox"/> CBD Biomass</label>
-            <label><input type="checkbox"/> THC Biomass</label>
-            <label><input type="checkbox"/> CBD Kief</label>
-            <label><input type="checkbox"/> THC Kief</label>
-            <label><input type="checkbox"/> Gummies</label>
-            <label><input type="checkbox"/> Edibles</label>
-            <label><input type="checkbox"/> Seeds</label>
-            <label><input type="checkbox"/> THC Flower</label>
-            <label><input type="checkbox"/> CBD Flower</label>
-            <label><input type="checkbox"/> CBD Hash</label>
-            <label><input type="checkbox"/> THC Hash</label>
-
-            <textarea placeholder="Requirements"></textarea>
-            <button type="submit">Submit</button>
-            <style>
-  .checkbox-group {
+     <style>
+  .product-container {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 10px;
-    max-width: 600px; /* Adjust width as needed */
+    gap: 40px;
   }
 
-  .checkbox-column {
-    flex: 1 1 30%; /* Roughly 3 columns */
-    display: flex;
-    align-items: center;
+  .product-column {
+    flex: 1;
+    min-width: 250px;
   }
 
-  .checkbox-column input {
-    margin-right: 5px;
+  .product-column h3 {
+    margin-bottom: 10px;
+  }
+
+  .product-column label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  input[type="checkbox"] {
+    margin-right: 6px;
   }
 </style>
 
-<div class="checkbox-group">
-  <div class="checkbox-column">
-    <input type="checkbox" id="option1" name="options" value="option1">
-    <label for="option1">Option 1</label>
+<div class="product-container">
+  <!-- Buyer Products -->
+  <div class="product-column">
+    <h3>Buyer Products</h3>
+    <label><input type="checkbox" /> CBD Isolates</label>
+    <label><input type="checkbox" /> CBN</label>
+    <label><input type="checkbox" /> Flower</label>
+    <label><input type="checkbox" /> CBD Biomass</label>
+    <label><input type="checkbox" /> THC Biomass</label>
+    <label><input type="checkbox" /> CBD Kief</label>
+    <label><input type="checkbox" /> THC Kief</label>
+    <label><input type="checkbox" /> Gummies</label>
+    <label><input type="checkbox" /> Edibles</label>
+    <label><input type="checkbox" /> Seeds</label>
+    <label><input type="checkbox" /> THC Flower</label>
+    <label><input type="checkbox" /> CBD Flower</label>
+    <label><input type="checkbox" /> CBD Hash</label>
+    <label><input type="checkbox" /> THC Hash</label>
   </div>
-  <div class="checkbox-column">
-    <input type="checkbox" id="option2" name="options" value="option2">
-    <label for="option2">Option 2</label>
+
+  <!-- Seller Products -->
+  <div class="product-column">
+    <h3>Seller Products</h3>
+    <label><input type="checkbox" /> CBD Isolates</label>
+    <label><input type="checkbox" /> CBN</label>
+    <label><input type="checkbox" /> Flower</label>
+    <label><input type="checkbox" /> CBD Biomass</label>
+    <label><input type="checkbox" /> THC Biomass</label>
+    <label><input type="checkbox" /> CBD Kief</label>
+    <label><input type="checkbox" /> THC Kief</label>
+    <label><input type="checkbox" /> Gummies</label>
+    <label><input type="checkbox" /> Edibles</label>
+    <label><input type="checkbox" /> Seeds</label>
+    <label><input type="checkbox" /> THC Flower</label>
+    <label><input type="checkbox" /> CBD Flower</label>
+    <label><input type="checkbox" /> CBD Hash</label>
+    <label><input type="checkbox" /> THC Hash</label>
   </div>
-  <div class="checkbox-column">
-    <input type="checkbox" id="option3" name="options" value="option3">
-    <label for="option3">Option 3</label>
-  </div>
-  <div class="checkbox-column">
-    <input type="checkbox" id="option4" name="options" value="option4">
-    <label for="option4">Option 4</label>
-  </div>
-  <div class="checkbox-column">
-    <input type="checkbox" id="option5" name="options" value="option5">
-    <label for="option5">Option 5</label>
-  </div>
-  <!-- Add more checkboxes as needed -->
 </div>
+
+            <textarea placeholder="Requirements"></textarea>
+            <button type="submit">Submit</button>
         </form>
     </main>
 </body>
