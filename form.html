@@ -143,19 +143,19 @@
   <main>
     <h1>Buyer/Seller Form</h1>
     <form id="BuyerSellerForm">
-      <input type="text" placeholder="Company Name" required/>
-      <input type="text" placeholder="Contact Name" required/>
-      <input type="tel" placeholder="Phone Number" required/>
-      <input type="email" placeholder="Company Email" required/>
-      <input type="url" placeholder="Website" />
-      <input type="text" placeholder="Company Address" />
+  <input type="text" name="company_name" placeholder="Company Name" required />
+  <input type="text" name="contact_name" placeholder="Contact Name" required />
+  <input type="tel" name="phone" placeholder="Phone Number" required />
+  <input type="email" name="email" placeholder="Company Email" required />
+  <input type="url" name="website" placeholder="Website" />
+  <input type="text" name="address" placeholder="Company Address" />
 
-      <label>Are you a:</label>
-      <select>
-        <option>Buyer</option>
-        <option>Seller</option>
-        <option>Both</option>
-      </select>
+  <label>Are you a:</label>
+  <select name="user_type">
+    <option value="Buyer">Buyer</option>
+    <option value="Seller">Seller</option>
+    <option value="Both">Both</option>
+  </select>
 
       <div class="product-container">
         <!-- Buyer Products -->
@@ -237,27 +237,33 @@
 
   // Submit handler
   document.getElementById("BuyerSellerForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const data = {
-      company_name: document.querySelector('input[placeholder="Company Name"]').value,
-      contact_name: document.querySelector('input[placeholder="Contact Name"]').value,
-      phone: document.querySelector('input[placeholder="Phone Number"]').value,
-      email: document.querySelector('input[placeholder="Company Email"]').value,
-      website: document.querySelector('input[placeholder="Website"]').value,
-      address: document.querySelector('input[placeholder="Company Address"]').value,
-      requirements: document.querySelector('textarea[placeholder="Requirements"]').value
-    };
+  const form = document.getElementById("BuyerSellerForm");
 
-    push(ref(db, "submissions/"), data)
-      .then(() => {
-        alert("Form submitted successfully!");
-        document.getElementById("BuyerSellerForm").reset();
-      })
-      .catch((error) => {
-        alert("Error submitting form: " + error.message);
-      });
-  });
+  const data = {
+    company_name: form.company_name.value,
+    contact_name: form.contact_name.value,
+    phone: form.phone.value,
+    email: form.email.value,
+    website: form.website.value,
+    address: form.address.value,
+    user_type: form.user_type.value,
+    buyer_products: [...form.querySelectorAll('input[name="buyer_products"]:checked')].map(el => el.value),
+    seller_products: [...form.querySelectorAll('input[name="seller_products"]:checked')].map(el => el.value),
+    requirements: form.requirements.value,
+    timestamp: new Date().toISOString()
+  };
+
+  push(ref(db, "form_submissions"), data)
+    .then(() => {
+      alert("Form submitted successfully!");
+      form.reset();
+    })
+    .catch((error) => {
+      alert("Error submitting form: " + error.message);
+    });
+});
 </script>
 </body>
 </html>
