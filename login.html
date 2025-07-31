@@ -72,11 +72,43 @@
   </div>
 
   <script>
-    // Placeholder login logic
-    document.getElementById("loginForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      alert("Login not yet implemented – coming soon!");
-    });
+    <script type="module">
+  // Import Firebase Auth functions
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+
+  // Your Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyAq2dhntiRGQ10DnKZlxEQr4lDiYrgnYnA",
+    authDomain: "mc-cannabis-collectives-5ba0a.firebaseapp.com",
+    projectId: "mc-cannabis-collectives-5ba0a",
+    storageBucket: "mc-cannabis-collectives-5ba0a.appspot.com",
+    messagingSenderId: "557664144063",
+    appId: "1:557664144063:web:2610cef342a19c04dd940a"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // Handle login form submission
+  document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const email = e.target.querySelector("input[type='email']").value;
+    const password = e.target.querySelector("input[type='password']").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        alert("Logged in successfully!");
+        // You can redirect to a members-only page here:
+        window.location.href = "members.html";
+      })
+      .catch((error) => {
+        alert("Login failed: " + error.message);
+      });
+  });
+</script>
   </script>
 </body>
 </html>
