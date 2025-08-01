@@ -161,25 +161,33 @@
       });
 
       // Google login
-      document.getElementById("googleSignIn").addEventListener("click", () => {
-        const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider)
-          .then((result) => {
-            const user = result.user;
-            const loginRef = ref(db, "loginLogs/" + user.uid);
-            const newLoginRef = push(ref(db, "loginLogs/" + user.uid));
-            set(newLoginRef, {
-              email: user.email,
-              method: "google",
-              loginTime: new Date().toISOString()
-            });
-            window.location.href = "index.html";
-          })
-          .catch((error) => {
-            alert(error.message);
-          });
-      });
+document.getElementById("googleSignIn").addEventListener("click", () => {
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const user = result.user;
+      console.log("Google user signed in:", user.email);
 
+      const newLoginRef = push(ref(db, "loginLogs/" + user.uid));
+      set(newLoginRef, {
+        email: user.email,
+        method: "google",
+        loginTime: new Date().toISOString()
+      })
+      .then(() => {
+        console.log("Saved to Realtime DB");
+        window.location.href = "index.html";
+      })
+      .catch((error) => {
+        console.error("Failed to save to DB:", error);
+        alert("Login successful but failed to save to DB.");
+      });
+    })
+    .catch((error) => {
+      console.error("Google login error:", error);
+      alert(error.message);
+    });
+});
       // Sign up
       document.getElementById("signUpBtn").addEventListener("click", () => {
         const email = prompt("Enter your email:");
