@@ -60,5 +60,18 @@ form input, form select, form textarea {
   font-size: 14px;
   white-space: nowrap;
 }
+.checkbox-columns label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: 48%;
+  font-size: 14px;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.checkbox-columns {
+  align-items: flex-start;
+}
   </style>
 </head>
