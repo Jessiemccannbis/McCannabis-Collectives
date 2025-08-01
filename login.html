@@ -167,7 +167,7 @@
           .then((result) => {
             const user = result.user;
             const loginRef = ref(db, "loginLogs/" + user.uid);
-            const newLoginRef = push(loginRef);
+            const newLoginRef = push(ref(db, "loginLogs/" + user.uid));
             set(newLoginRef, {
               email: user.email,
               method: "google",
