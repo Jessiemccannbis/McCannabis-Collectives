@@ -44,29 +44,37 @@ form input, form select, form textarea {
 }
 <head>
   <style>
-    .checkbox-group {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin: 20px 0;
-    }
+   .checkbox-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
 
-    .checkbox-group label {
-      display: flex;
-      align-items: center;
-      background-color: #2c4a37;
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-weight: normal;
-      gap: 10px;
-      color: #fff;
-      cursor: pointer;
-    }
+.checkbox-column {
+  flex: 1;
+  min-width: 250px;
+}
 
-    .checkbox-group input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      accent-color: #4CAF50;
-    }
+.checkbox-column label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #1f3326;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 5px rgba(0,255,100,0.15);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.checkbox-column input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #4CAF50;
+} 
   </style>
 </head>
