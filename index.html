@@ -8,14 +8,19 @@
     <style>
         body {
             font-family: 'Helvetica Neue', sans-serif;
-            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
-            text-align: center;
+            background-color: #1f2b24;
+            background-image: url('leaf.png'); /* <-- Replace with correct image path */
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            background-size: 300px;
+            background-attachment: fixed;
+            color: #fff;
         }
 
         header {
-            background-color: #1e1e1e;
+            background-color: #000;
             padding: 20px 0;
         }
 
@@ -37,14 +42,15 @@
 
         main {
             max-width: 800px;
-            margin: 50px auto;
-            padding: 0 20px;
+            margin: 60px auto;
+            padding: 20px;
+            text-align: center;
         }
 
         h1 {
             font-size: 2rem;
             margin-bottom: 30px;
-            color: #333;
+            color: #fff;
         }
 
         .buttons {
@@ -53,7 +59,7 @@
 
         .btn {
             display: inline-block;
-            background-color: #3d7a57;
+            background-color: #4aaf69;
             color: white;
             padding: 12px 25px;
             margin: 10px;
@@ -64,21 +70,21 @@
         }
 
         .btn:hover {
-            background-color: #2f6145;
+            background-color: #3c9456;
         }
 
         .subscribe-form {
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.05);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border: 1px solid #4aaf69;
         }
 
         .subscribe-form label {
             display: block;
             font-size: 16px;
             margin-bottom: 15px;
-            color: #444;
+            color: #fff;
         }
 
         .subscribe-form input[type="email"] {
@@ -92,7 +98,7 @@
 
         .subscribe-form button {
             padding: 12px 20px;
-            background-color: #3d7a57;
+            background-color: #4aaf69;
             color: white;
             font-size: 16px;
             border: none;
@@ -101,17 +107,7 @@
         }
 
         .subscribe-form button:hover {
-            background-color: #2f6145;
-        }
-
-        /* Optional: marijuana leaf on right */
-        .leaf-img {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            max-width: 150px;
-            opacity: 0.2;
-            z-index: -1;
+            background-color: #3c9456;
         }
     </style>
 </head>
@@ -140,8 +136,5 @@
             <button type="submit">Subscribe</button>
         </form>
     </main>
-
-    <!-- Optional marijuana leaf image -->
-    <img src="leaf.png" alt="Leaf" class="leaf-img"/>
 </body>
 </html>
