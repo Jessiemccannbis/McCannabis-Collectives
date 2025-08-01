@@ -47,24 +47,18 @@ form input, form select, form textarea {
  .checkbox-columns {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
-  justify-content: start;
+  gap: 15px 40px; /* vertical and horizontal spacing */
+  max-width: 700px;
+  justify-content: flex-start; /* LEFT ALIGN */
 }
 
-.checkbox-column {
+.checkbox-columns label {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.checkbox-column label {
-  display: inline-flex;
   align-items: center;
-  gap: 4px; /* Reduce space between box and text */
-  font-size: 15px;
-  line-height: 1.2;
+  gap: 6px;
+  width: 45%; /* two per row */
+  font-size: 14px;
   white-space: nowrap;
-  padding: 2px 0;
 }
   </style>
 </head>
