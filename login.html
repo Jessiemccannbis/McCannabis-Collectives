@@ -1,40 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Member Login – McCannabis Collectives</title>
 
+  <style>
+    body {
+      background-color: #0e1e14;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
 
+    header {
+      background-color: #1b2d21;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-  
-  
-  
-  
+    header h1 {
+      font-size: 20px;
+      color: #aaffaa;
+      margin: 0;
+    }
 
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
 
-  
-    
-Mc’Cannabis Collectives
+    nav a:hover {
+      color: #aaffaa;
+    }
 
-    
-      Home
-      Buyer/Seller Form
-      Watch Cartoon
-    
-  
-  
+    .login-box {
+      max-width: 400px;
+      margin: 60px auto;
+      padding: 30px;
+      background: #1f3326;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0, 255, 100, 0.1);
+      text-align: center;
+    }
 
-    
-Member Login
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+    }
 
-    
-      
-      
-      Sign in with Email
-    
+    button {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-<button id="googleSignIn" class="google-btn">Sign in with Google</button>
-<button id="signUpBtn" class="signup-btn">Don’t have an account? Sign Up</button>
+    button:hover {
+      background-color: #45a049;
+    }
 
+    .google-btn {
+      background-color: #fff;
+      color: #333;
+    }
 
-  
+    .signup-btn {
+      background-color: #aaffaa;
+      color: #000;
+    }
 
-  
+    .signup-btn:hover {
+      background-color: #caffc4;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Mc’Cannabis Collectives</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="form.html">Buyer/Seller Form</a>
+      <a href="cartoon.html">Watch Cartoon</a>
+    </nav>
+  </header>
+
+  <div class="login-box">
+    <h2>Member Login</h2>
+
+    <form id="emailSignInForm">
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Sign in with Email</button>
+    </form>
+
+    <button id="googleSignIn" class="google-btn">Sign in with Google</button>
+    <button id="signUpBtn" class="signup-btn">Don’t have an account? Sign Up</button>
+  </div>
+
+  <!-- Firebase + Auth -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      createUserWithEmailAndPassword,
+      GoogleAuthProvider,
+      signInWithPopup
+    } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+    import {
+      getDatabase,
+      ref,
+      set
+    } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAq2dhntiRGQ10DnKZlxEQr4lDiYrgnYnA",
+      authDomain: "mc-cannabis-collectives-5ba0a.firebaseapp.com",
+      databaseURL: "https://mc-cannabis-collectives-5ba0a-default-rtdb.firebaseio.com",
+      projectId: "mc-cannabis-collectives-5ba0a",
+      storageBucket: "mc-cannabis-collectives-5ba0a.appspot.com",
+      messagingSenderId: "557664144063",
+      appId: "1:557664144063:web:2610cef342a19c04dd940a"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Email login
+      document.getElementById("emailSignInForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            set(ref(db, "users/" + user.uid), {
+              email: user.email,
+              method: "email",
+              lastLogin: new Date().toISOString()
+            });
+            window.location.href = "index.html";
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
+      });
+
+      // Google login
+      document.getElementById("googleSignIn").addEventListener("click", () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+          .then((result) => {
+            const user = result.user;
+            set(ref(db, "users/" + user.uid), {
+              email: user.email,
+              method: "google",
+              lastLogin: new Date().toISOString()
+            });
+            window.location.href = "index.html";
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
+      });
+
+      // Sign up (prompt)
+      document.getElementById("signUpBtn").addEventListener("click", () => {
+        const email = prompt("Enter your email:");
+        const password = prompt("Enter a password:");
+
+        if (email && password) {
+          createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              const user = userCredential.user;
+              set(ref(db, "users/" + user.uid), {
+                email: user.email,
+                method: "email",
+                createdAt: new Date().toISOString()
+              });
+              alert("Account created! Redirecting...");
+              window.location.href = "index.html";
+            })
+            .catch((error) => {
+              alert(error.message);
+            });
+        }
+      });
+    });
+  </script>
+</body>
+</html>  
 
 
 
