@@ -139,25 +139,30 @@
     const db = getDatabase(app);
 
     document.addEventListener("DOMContentLoaded", () => {
-      // Email login
-      document.getElementById("emailSignInForm").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
+     // Email login
+document.getElementById("emailSignInForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const email = e.target.email.value;
+  const password = e.target.password.value;
 
-        signInWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            const user = userCredential.user;
-            set(ref(db, "users/" + user.uid), {
-              email: user.email,
-              method: "email",
-              lastLogin: new Date().toISOString()
-            });
-            window.location.href = "index.html";
-          })
-          .catch((error) => {
-            alert(error.message);
-          });
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+
+      const newLoginRef = push(ref(db, "loginLogs/" + user.uid));
+      set(newLoginRef, {
+        email: user.email,
+        method: "email",
+        loginTime: new Date().toISOString()
+      })
+      .then(() => {
+        console.log("Email login saved to Realtime DB");
+        window.location.href = "index.html";
+      })
+      .catch((error) => {
+        console.error("Failed to save email login to DB:", error);
+        alert("Login successful but failed to save to DB.");
+      });
       });
 
       // Google login
