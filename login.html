@@ -168,7 +168,7 @@ document.getElementById("googleSignIn").addEventListener("click", () => {
       const user = result.user;
       console.log("Google user signed in:", user.email);
 
-      const newLoginRef = push(ref(db, "loginLogs/" + user.uid));
+      const newLoginRef = push(ref(db, `loginLogs/${user.uid}`));
       set(newLoginRef, {
         email: user.email,
         method: "google",
