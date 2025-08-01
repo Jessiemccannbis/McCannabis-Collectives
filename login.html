@@ -120,7 +120,8 @@
     import {
       getDatabase,
       ref,
-      set
+      set,
+      push
     } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
 
     const firebaseConfig = {
@@ -139,77 +140,69 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       // Email login
-document.getElementById("emailSignInForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const email = e.target.email.value;
-  const password = e.target.password.value;
+      document.getElementById("emailSignInForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
 
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      set(ref(db, "users/" + user.uid), {
-        email: user.email,
-        method: "email",
-        lastLogin: new Date().toISOString()
-      });
-      window.location.href = "index.html";
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-});
-
-// Google login
-document.getElementById("googleSignIn").addEventListener("click", () => {
-  const provider = new GoogleAuthProvider();
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      const user = result.user;
-
-      // Save to loginLogs
-      const loginRef = ref(db, "loginLogs/" + user.uid);
-      const newLoginRef = push(loginRef);
-      set(newLoginRef, {
-        email: user.email,
-        method: "google",
-        loginTime: new Date().toISOString()
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            set(ref(db, "users/" + user.uid), {
+              email: user.email,
+              method: "email",
+              lastLogin: new Date().toISOString()
+            });
+            window.location.href = "index.html";
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
       });
 
-      window.location.href = "index.html";
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-});
-
-// Sign up
-document.getElementById("signUpBtn").addEventListener("click", () => {
-  const email = prompt("Enter your email:");
-  const password = prompt("Enter a password:");
-
-  if (email && password) {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        set(ref(db, "users/" + user.uid), {
-          email: user.email,
-          method: "email",
-          createdAt: new Date().toISOString()
-        });
-        alert("Account created! Redirecting...");
-        window.location.href = "index.html";
-      })
-      .catch((error) => {
-        alert(error.message);
+      // Google login
+      document.getElementById("googleSignIn").addEventListener("click", () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+          .then((result) => {
+            const user = result.user;
+            const loginRef = ref(db, "loginLogs/" + user.uid);
+            const newLoginRef = push(loginRef);
+            set(newLoginRef, {
+              email: user.email,
+              method: "google",
+              loginTime: new Date().toISOString()
+            });
+            window.location.href = "index.html";
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
       });
-  }
-});
+
+      // Sign up
+      document.getElementById("signUpBtn").addEventListener("click", () => {
+        const email = prompt("Enter your email:");
+        const password = prompt("Enter a password:");
+
+        if (email && password) {
+          createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              const user = userCredential.user;
+              set(ref(db, "users/" + user.uid), {
+                email: user.email,
+                method: "email",
+                createdAt: new Date().toISOString()
+              });
+              alert("Account created! Redirecting...");
+              window.location.href = "index.html";
+            })
+            .catch((error) => {
+              alert(error.message);
+            });
         }
       });
     });
   </script>
 </body>
-</html>  
-
-
-
+</html>
