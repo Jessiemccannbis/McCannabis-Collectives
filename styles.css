@@ -42,3 +42,31 @@ form input, form select, form textarea {
 .subscribe-form {
     margin-top: 2em;
 }
+<head>
+  <style>
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      background-color: #2c4a37;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: normal;
+      gap: 10px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #4CAF50;
+    }
+  </style>
+</head>
