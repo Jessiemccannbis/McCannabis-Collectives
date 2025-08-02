@@ -1,141 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>McCannabis Collective</title>
-    <link rel="stylesheet" href="styles.css"/>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #0e3b2e;
-            background-image: url('https://openclipart.org/image/2000px/279310');
-            background-image opacity: 0.05;
-            background-repeat: no-repeat;
-            background-position: bottom right;
-            background-size: 900px;       
-            background-attachment: fixed;
-            color: #fff;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mc'Cannabis Collectives</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1f2b24;
+      background-image: url('leaf.png'); /* Make sure this file exists */
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      background-size: 300px;
+      background-attachment: fixed;
+      color: #fff;
+    }
 
-        header {
-            background-color: #000;
-            padding: 20px 0;
-        }
+    header {
+      padding: 20px 0;
+      text-align: center;
+    }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-        }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: bold;
+      color: #4aaf69;
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: 500;
-            font-size: 16px;
-        }
+    nav ul {
+      list-style-type: none;
+      padding: 10px 0 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
 
-        main {
-            max-width: 800px;
-            margin: 60px auto;
-            padding: 20px;
-            text-align: center;
-        }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      font-size: 16px;
+    }
 
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #fff;
-        }
+    main {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+      text-align: center;
+    }
 
-        .buttons {
-            margin-bottom: 40px;
-        }
+    main > h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #fff;
+    }
 
-        .btn {
-            display: inline-block;
-            background-color: #4aaf69;
-            color: white;
-            padding: 12px 25px;
-            margin: 10px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s ease;
-        }
+    .buttons {
+      margin-bottom: 40px;
+    }
 
-        .btn:hover {
-            background-color: #3c9456;
-        }
+    .btn {
+      display: inline-block;
+      background-color: #4aaf69;
+      color: white;
+      padding: 12px 25px;
+      margin: 10px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
 
-        .subscribe-form {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid #4aaf69;
-        }
+    .btn:hover {
+      background-color: #3c9456;
+    }
 
-        .subscribe-form label {
-            display: block;
-            font-size: 16px;
-            margin-bottom: 15px;
-            color: #fff;
-        }
+    .subscribe-form {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid #4aaf69;
+    }
 
-        .subscribe-form input[type="email"] {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            margin-bottom: 15px;
-        }
+    .subscribe-form label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 15px;
+      color: #fff;
+    }
 
-        .subscribe-form button {
-            padding: 12px 20px;
-            background-color: #4aaf69;
-            color: white;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .subscribe-form input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+    }
 
-        .subscribe-form button:hover {
-            background-color: #3c9456;
-        }
-    </style>
+    .subscribe-form button {
+      padding: 12px 20px;
+      background-color: #4aaf69;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .subscribe-form button:hover {
+      background-color: #3c9456;
+    }
+
+    /* Optional: Dark faded overlay leaf effect (if you want extra fading) */
+    body::after {
+      content: "";
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      background: url('leaf.png') no-repeat;
+      background-size: contain;
+      opacity: 0.1;
+      pointer-events: none;
+      z-index: -1;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="form.html">Buyer/Seller Form</a></li>
-                <li><a href="cartoon.html">Watch the Cartoon</a></li>
-                <li><a href="login.html">Member Login</a></li>
-                <li><a href="signup.html">Create Account</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <h1>McCannabis Collective</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="form.html">Buyer/Seller Form</a></li>
+        <li><a href="cartoon.html">Watch the Cartoon</a></li>
+        <li><a href="login.html">Member Login</a></li>
+        <li><a href="signup.html">Create Account</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <h1>Connecting the world’s finest flower, hash & hearts</h1>
-        <div class="buttons">
-            <a href="form.html" class="btn">Buyer/Seller Form</a>
-            <a href="cartoon.html" class="btn">Watch the Cartoon</a>
-        </div>
-        <form class="subscribe-form">
-            <label for="email">Stay up to date – sign up to receive cannabis industry news articles</label>
-            <input type="email" id="email" placeholder="Email address" required />
-            <button type="submit">Subscribe</button>
-        </form>
-    </main>
+  <main>
+    <h2>Connecting the world’s finest flower, hash & hearts</h2>
+    <div class="buttons">
+      <a href="form.html" class="btn">Buyer/Seller Form</a>
+      <a href="cartoon.html" class="btn">Watch the Cartoon</a>
+    </div>
+    <form class="subscribe-form">
+      <label for="email">Stay up to date – sign up to receive cannabis industry news articles</label>
+      <input type="email" id="email" placeholder="Email address" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </main>
 </body>
 </html>
