@@ -11,11 +11,18 @@
       margin: 0;
       padding: 0;
       background-color: #0e3b2e;
-      background-image: url('https://openclipart.org/image/2000px/279310'); 
-      background-repeat: no-repeat;
-      background-position: bottom right;
-      background-size: 900px;
-      background-attachment: fixed;
+         body::after {
+      content: "";
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 900px;
+      height: 900px;
+      background: url('https://openclipart.org/image/2000px/279310') no-repeat;
+      background-size: contain;
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: -1;
       color: #fff;
     }
 
@@ -115,27 +122,28 @@
 
     .subscribe-form button:hover {
       background-color: #3c9456;
-    }
 
-    /* Optional: Dark faded overlay leaf effect (if you want extra fading) */
-    body::after {
-      content: "";
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      width: 900px;
-      height: 900px;
-      background: url('https://openclipart.org/image/2000px/279310') no-repeat;
-      background-size: contain;
-      opacity: 0.05;
-      pointer-events: none;
-      z-index: -1;
     }
   </style>
 </head>
+<head>
+  <title>McCannabis Collective</title>
+  <style>
+    /* This belongs inside the <head> */
+    header h1 {
+      margin: 0;
+      font-size: 56px;
+      font-weight: 600;
+      color: #4aaf69;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+
 <body>
   <header>
-    <h1>McCannabis Collective</h1>
+    <h1>Mc'Cannabis Collective</h1>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -146,6 +154,7 @@
       </ul>
     </nav>
   </header>
+</body>
 
   <main>
     <h2>Connecting the world’s finest flower, hash & hearts</h2>
