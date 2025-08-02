@@ -28,7 +28,8 @@
       opacity: 0.05;
       pointer-events: none;
       z-index: -1;
-    header {
+    
+      header {
   text-align: center;
   padding: 40px 0 20px;
 }
@@ -42,15 +43,25 @@ header h1 {
   text-transform: uppercase;
 }
 
-/* Center nav links */
+/* Fix: explicitly make nav centered and block */
+nav {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Fix: remove any flex issues by using inline-block list */
 nav ul {
   list-style-type: none;
-  padding: 10px 0 0;
-  margin: 0;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
+  padding: 0;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: left;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
 }
 
 nav ul li a {
@@ -59,7 +70,6 @@ nav ul li a {
   font-weight: 500;
   font-size: 16px;
 }
-
     main {
       max-width: 800px;
       margin: 60px auto;
