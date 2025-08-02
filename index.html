@@ -44,26 +44,23 @@ header h1 {
   text-transform: uppercase;
 }
 
-/* Fix: explicitly make nav centered and block */
 nav {
-  display: block;
   width: 100%;
+  display: flex;
+  justify-content: center;
   margin-top: 20px;
 }
 
-/* Fix: remove any flex issues by using inline-block list */
 nav ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
-  margin: 0 auto;
+  margin: 0;
   display: flex;
-  justify-content: center;
-  flex-wrap: warp;
-  gap: 20px;
+  gap: 30px;
 }
 
 nav ul li {
-    margin: 0;
+  margin: 0;
 }
 
 nav ul li a {
