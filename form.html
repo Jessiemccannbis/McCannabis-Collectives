@@ -79,41 +79,47 @@
     }
 
     .product-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 40px;
-}
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin: 40px 0;
+    }
 
     .product-section {
       flex: 1;
-      min-width: 400px;
+      min-width: 300px;
     }
 
     .product-section h3 {
-  text-align: center;
-  margin-bottom: 20px;
-}
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-.checkbox-wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-}
+    .checkbox-columns {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+    }
 
-.checkbox-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px 40px;
-}
+    .checkbox-column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 180px;
+    }
 
-.checkbox-grid label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 16px;
-  white-space: nowrap;
-}
+    .checkbox-column label {
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .checkbox-column input[type="checkbox"] {
+      margin-right: 8px;
+      transform: scale(1.1);
+    }
 
     textarea {
       width: 100%;
@@ -163,52 +169,58 @@
     <option value="Both">Both</option>
   </select>
 
-  <main>
-  <form>
-    <div class="product-container">
+      <div class="product-container">
+        <!-- Buyer Products -->
+        <div class="product-section">
+          <!-- Buyer Products -->
+<div class="product-section">
+  <h3 style="color: #aaffaa;">What products are you looking to buy?</h3>
 
-      <!-- Buyer Products -->
-<div class="checkbox-wrapper">
-  <h3>What products are you looking to buy?</h3>
-  <div class="checkbox-grid">
-    <label><input type="checkbox" name="buyer_products" value="CBD Isolates" />CBD Isolates</label>
-    <label><input type="checkbox" name="buyer_products" value="CBN" />CBN</label>
-    <label><input type="checkbox" name="buyer_products" value="Flower" />Flower</label>
-    <label><input type="checkbox" name="buyer_products" value="CBD Biomass" />CBD Biomass</label>
-    <label><input type="checkbox" name="buyer_products" value="THC Biomass" />THC Biomass</label>
-    <label><input type="checkbox" name="buyer_products" value="CBD Kief" />CBD Kief</label>
-    <label><input type="checkbox" name="buyer_products" value="THC Kief" />THC Kief</label>
-    <label><input type="checkbox" name="buyer_products" value="Gummies" />Gummies</label>
-    <label><input type="checkbox" name="buyer_products" value="Edibles" />Edibles</label>
-    <label><input type="checkbox" name="buyer_products" value="Seeds" />Seeds</label>
-    <label><input type="checkbox" name="buyer_products" value="THC Flower" />THC Flower</label>
-    <label><input type="checkbox" name="buyer_products" value="CBD Flower" />CBD Flower</label>
-    <label><input type="checkbox" name="buyer_products" value="CBD Hash" />CBD Hash</label>
-    <label><input type="checkbox" name="buyer_products" value="THC Hash" />THC Hash</label>
-  </div>
-</div>
-
-      <!-- Seller Products -->
-     <div class="checkbox-wrapper">
-  <h3>What products are you selling?</h3>
-  <div class="checkbox-grid">
-    <label><input type="checkbox" name="buyer_products" value="CBD Isolates" />CBD Isolates</label>
-    <label><input type="checkbox" name="buyer_products" value="CBN" />CBN</label>
-    <label><input type="checkbox" name="buyer_products" value="Flower" />Flower</label>
-    <label><input type="checkbox" name="buyer_products" value="CBD Biomass" />CBD Biomass</label>
-    <label><input type="checkbox" name="buyer_products" value="THC Biomass" />THC Biomass</label>
-    <label><input type="checkbox" name="buyer_products" value="CBD Kief" />CBD Kief</label>
-    <label><input type="checkbox" name="buyer_products" value="THC Kief" />THC Kief</label>
-    <label><input type="checkbox" name="buyer_products" value="Gummies" />Gummies</label>
-    <label><input type="checkbox" name="buyer_products" value="Edibles" />Edibles</label>
-    <label><input type="checkbox" name="buyer_products" value="Seeds" />Seeds</label>
-    <label><input type="checkbox" name="buyer_products" value="THC Flower" />THC Flower</label>
-    <label><input type="checkbox" name="buyer_products" value="CBD Flower" />CBD Flower</label>
-    <label><input type="checkbox" name="buyer_products" value="CBD Hash" />CBD Hash</label>
-    <label><input type="checkbox" name="buyer_products" value="THC Hash" />THC Hash</label>
-  </div>
-</div>
+  <div class="checkbox-columns">
+    <div class="checkbox-column"> 
+      <label><input type="checkbox" name="buyer_products" value="CBD Isolates" />CBD Isolates</label>
+      <label><input type="checkbox" name="buyer_products" value="CBN" />CBN</label>
+      <label><input type="checkbox" name="buyer_products" value="Flower" />Flower</label>
+      <label><input type="checkbox" name="buyer_products" value="CBD Biomass" />CBD Biomass</label>
+      <label><input type="checkbox" name="buyer_products" value="THC Biomass" />THC Biomass</label>
+      <label><input type="checkbox" name="buyer_products" value="CBD Kief" />CBD Kief</label>
+      <label><input type="checkbox" name="buyer_products" value="THC Kief" />THC Kief</label>
     </div>
+
+    <div class="checkbox-column">
+      <label><input type="checkbox" name="buyer_products" value="Gummies" />Gummies</label>
+      <label><input type="checkbox" name="buyer_products" value="Edibles" />Edibles</label>
+      <label><input type="checkbox" name="buyer_products" value="Seeds" />Seeds</label>
+      <label><input type="checkbox" name="buyer_products" value="THC Flower" />THC Flower</label>
+      <label><input type="checkbox" name="buyer_products" value="CBD Flower" />CBD Flower</label>
+      <label><input type="checkbox" name="buyer_products" value="CBD Hash" />CBD Hash</label>
+      <label><input type="checkbox" name="buyer_products" value="THC Hash" />THC Hash</label>
+    </div>
+  </div>
+</div>
+<h3 style="color: #aaffaa;">What products are you selling?</h3>
+
+<div class="checkbox-columns">
+  <div class="checkbox-column">
+    <label><input type="checkbox" name="seller_products" value="CBD Isolates" />CBD Isolates</label>
+    <label><input type="checkbox" name="seller_products" value="CBN" />CBN</label>
+    <label><input type="checkbox" name="seller_products" value="Flower" />Flower</label>
+    <label><input type="checkbox" name="seller_products" value="CBD Biomass" />CBD Biomass</label>
+    <label><input type="checkbox" name="seller_products" value="THC Biomass" />THC Biomass</label>
+    <label><input type="checkbox" name="seller_products" value="CBD Kief" />CBD Kief</label>
+    <label><input type="checkbox" name="seller_products" value="THC Kief" />THC Kief</label>
+  </div>
+
+  <div class="checkbox-column">
+    <label><input type="checkbox" name="seller_products" value="Gummies" />Gummies</label>
+    <label><input type="checkbox" name="seller_products" value="Edibles" />Edibles</label>
+    <label><input type="checkbox" name="seller_products" value="Seeds" />Seeds</label>
+    <label><input type="checkbox" name="seller_products" value="THC Flower" />THC Flower</label>
+    <label><input type="checkbox" name="seller_products" value="CBD Flower" />CBD Flower</label>
+    <label><input type="checkbox" name="seller_products" value="CBD Hash" />CBD Hash</label>
+    <label><input type="checkbox" name="seller_products" value="THC Hash" />THC Hash</label>
+  </div>
+</div>
       <div class="form-footer">
         <textarea name="requirements" placeholder="Requirements"></textarea>
         <button type="submit">Submit</button>
