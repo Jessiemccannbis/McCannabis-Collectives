@@ -44,6 +44,18 @@ form input, form select, form textarea {
 }
 <head>
   <style>
+@media (max-width: 600px) {
+  header nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header nav a {
+    margin-left: 0 !important;
+    margin-bottom: 10px;
+  }
+}
 .main-header {
   background-color: #1b2d21;
   padding: 15px 20px;
