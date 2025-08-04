@@ -6,81 +6,94 @@
   <title>Member Login – McCannabis Collectives</title>
 
   <style>
-    body {
-      background-color: #0e1e14;
-      font-family: Arial, sans-serif;
-      color: #fff;
-      margin: 0;
-      padding: 0;
-    }
+  body {
+    background-color: #0e1e14;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
 
-    header {
-      background-color: #1b2d21;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+  header {
+    background-color: #1b2d21;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    header h1 {
-      font-size: 20px;
-      color: #aaffaa;
-      margin: 0;
-    }
+  header h1 {
+    font-size: 20px;
+    color: #aaffaa;
+    margin: 0;
+  }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-    }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+  }
 
-    nav a:hover {
-      color: #aaffaa;
-    }
+  nav a:hover {
+    color: #aaffaa;
+  }
 
-    .login-box {
-      max-width: 400px;
-      margin: 60px auto;
-      padding: 30px;
-      background: #1f3326;
-      border-radius: 16px;
-      box-shadow: 0 0 15px rgba(0, 255, 100, 0.1);
-      text-align: center;
-    }
+  .checkbox-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 10px;
+  }
 
-    input, button {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 10px;
-    }
+  .checkbox-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 200px;
+  }
 
-    button {
-      background-color: #4CAF50;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
+  .checkbox-column label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-size: 16px;
+  }
 
-    button:hover {
-      background-color: #45a049;
-    }
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+  }
 
-    .google-btn {
-      background-color: #fff;
-      color: #333;
-    }
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-    .signup-btn {
-      background-color: #aaffaa;
-      color: #000;
-    }
+  button:hover {
+    background-color: #45a049;
+  }
 
-    .signup-btn:hover {
-      background-color: #caffc4;
-    }
+  .product-section {
+    margin: 40px auto;
+    max-width: 900px;
+    padding: 20px;
+    background-color: #1f3326;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(0, 255, 100, 0.1);
+  }
+
+  .product-section h3 {
+    color: #aaffaa;
+    margin-bottom: 20px;
+    text-align: left;
+  }
   </style>
 </head>
 
