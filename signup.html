@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up</title>
 <style>
   body {
     background-color: #0e1e14;
@@ -33,81 +37,74 @@
     color: #aaffaa;
   }
 
+  .product-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #1f3326;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(0, 255, 100, 0.1);
+  }
+
+  .product-section h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #aaffaa;
+    text-align: left;
+  }
+
   .checkbox-columns {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    margin-top: 10px;
+    justify-content: flex-start;
   }
 
   .checkbox-column {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    min-width: 200px;
+    gap: 10px;
+    min-width: 45%;
   }
 
   .checkbox-column label {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #fff;
     font-size: 16px;
   }
 
   input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
+    accent-color: #4CAF50;
   }
 
-  button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-  }
+  @media screen and (max-width: 600px) {
+    .checkbox-columns {
+      flex-direction: column;
+      gap: 20px;
+    }
 
-  button:hover {
-    background-color: #45a049;
-  }
-
-  .product-section {
-    margin: 40px auto;
-    max-width: 900px;
-    padding: 20px;
-    background-color: #1f3326;
-    border-radius: 16px;
-    box-shadow: 0 0 15px rgba(0, 255, 100, 0.1);
-  }
-
-  .product-section h3 {
-    color: #aaffaa;
-    margin-bottom: 20px;
-    text-align: left;
+    .checkbox-column {
+      min-width: 100%;
+    }
   }
 </style>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Sign Up</title>
 </head>
 <body>
  <header style="background-color: #1b2d21; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center;">
   <h1 style="font-size: 22px; color: #aaffaa; margin: 0; font-weight: bold;">Mc’Cannabis Collectives</h1>
   <nav style="display: flex; gap: 20px;">
     <a href="index.html" style="color: #fff; text-decoration: none; font-weight: bold;">Home</a>
-    <a href="form.html" style="color: #fff; text-decoration: none; font-weight: bold;">Buyer/Seller Form</a>
+    <a href="form.html" style="color: #fff; ecoration: none; font-weight: bold;">Buyer/Seller Form</a>
     <a href="cartoon.html" style="color: #fff; text-decoration: none; font-weight: bold;">Watch Cartoon</a>
     <a href="login.html" style="color: #fff; text-decoration: none; font-weight: bold;">Member Login</a>
     <a href="signup.html" style="color: #fff; text-decoration: none; font-weight: bold;">Sign Up</a>
   </nav>
  </header>
     </nav>
-</header>
-  <h2>Create Your Account</h2>
+< <h2>Create Your Account</h2>
   <form id="signupForm">
     <input type="email" id="signupEmail" placeholder="Email" required />
     <input type="password" id="signupPassword" placeholder="Password" required />
