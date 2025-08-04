@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Member Login – McCannabis Collectives</title>
 
-  <style>
+<style>
   body {
     background-color: #0e1e14;
     font-family: Arial, sans-serif;
@@ -39,62 +39,61 @@
     color: #aaffaa;
   }
 
+  .product-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #1f3326;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(0, 255, 100, 0.1);
+  }
+
+  .product-section h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #aaffaa;
+    text-align: left;
+  }
+
   .checkbox-columns {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    margin-top: 10px;
+    justify-content: flex-start;
   }
 
   .checkbox-column {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    min-width: 200px;
+    gap: 10px;
+    min-width: 45%;
   }
 
   .checkbox-column label {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #fff;
     font-size: 16px;
   }
 
   input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
+    accent-color: #4CAF50;
   }
 
-  button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-  }
+  @media screen and (max-width: 600px) {
+    .checkbox-columns {
+      flex-direction: column;
+      gap: 20px;
+    }
 
-  button:hover {
-    background-color: #45a049;
+    .checkbox-column {
+      min-width: 100%;
+    }
   }
+</style> 
 
-  .product-section {
-    margin: 40px auto;
-    max-width: 900px;
-    padding: 20px;
-    background-color: #1f3326;
-    border-radius: 16px;
-    box-shadow: 0 0 15px rgba(0, 255, 100, 0.1);
-  }
-
-  .product-section h3 {
-    color: #aaffaa;
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  </style>
 </head>
 
 <body>
