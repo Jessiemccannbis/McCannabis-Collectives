@@ -1,277 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
- </head>
- <body>
- <header class="site-header">
-  <h1 class="glow-text">Mc’Cannabis <br> Collectives</h1>
-  <nav class="site-nav">
-    <a href="index.html">Home</a>
-    <a href="form.html">Buyer/Seller Form</a>
-    <a href="cartoon.html">Watch Cartoon</a>
-    <a href="login.html">Member Login</a>
-    <a href="signup.html">Sign Up</a>
-  </nav>
- </header>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Buyer/Seller Form</title>
-   <!-- Firebase SDKs -->
-  <script type="module" src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
-  <script type="module" src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"></script>
 
-  <!-- Your CSS -->
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #0e3b2e;
-      color: #f4f1ec;
-      margin: 0;
-      padding: 0;
-      position: relative;
-    }
 
-.background-leaf {
-  position: fixed;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  width: 900px;
-  height: 900px;
-  opacity: 0.05;
-  pointer-events: none;
-  background: url('https://openclipart.org/image/2000px/279310') no-repeat center center;
-  background-size: contain;
-  z-index: 0;
-}
-    main {
-      position: relative;
-      z-index: 1;
-    }
 
-    form {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
-      text-align: center;
-    }
+  
+  
+  
+  
+  
+  
 
-    input[type="text"],
-    input[type="tel"],
-    input[type="email"],
-    input[type="url"],
-    select {
-      display: block;
-      width: 100%;
-      max-width: 600px;
-      margin: 10px auto;
-      padding: 8px;
-      background-color: #f4f1ec;
-      color: #000;
-      border: none;
-      border-radius: 5px;
-    }
 
-    h1 {
-      text-align: center;
-      margin: 30px 0;
-    }
 
-    .product-container {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 40px;
-      margin: 40px 0;
-    }
+  
+Mc’Cannabis 
+ Collectives
 
-    .product-section {
-      flex: 1;
-      min-width: 300px;
-    }
+  
+    Home
+    Buyer/Seller Form
+    Watch Cartoon
+    Member Login
+    Sign Up
+  
 
-    .product-section h3 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
 
-    .checkbox-columns {
-      display: flex;
-      gap: 30px;
-      justify-content: center;
-    }
+  
+Buyer/Seller Form
 
-    .checkbox-column {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      min-width: 180px;
-    }
+  
+    
+    
 
-    .checkbox-column label {
-      display: flex;
-      align-items: center;
-      font-size: 15px;
-      cursor: pointer;
-    }
-
-    .checkbox-column input[type="checkbox"] {
-      margin-right: 8px;
-      transform: scale(1.1);
-    }
-
-    textarea {
-      width: 100%;
-      max-width: 600px;
-      height: 100px;
-      margin: 0 auto 20px auto;
-      display: block;
-      padding: 10px;
-      background-color: #f4f1ec;
-      color: #000;
-      border: none;
-      border-radius: 5px;
-    }
-
-    .form-footer {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    button[type="submit"] {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #3b9d75;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <div class="background-leaf"></div>
-  <main>
-    <h1>Buyer/Seller Form</h1>
-    <form id="BuyerSellerForm">
-  <input type="text" name="company_name" placeholder="Company Name" required />
-  <input type="text" name="contact_name" placeholder="Contact Name" required />
-  <input type="tel" name="phone" placeholder="Phone Number" required />
-  <input type="email" name="email" placeholder="Company Email" required />
-  <input type="url" name="website" placeholder="Website" />
-  <input type="text" name="address" placeholder="Company Address" />
-
-  <label>Are you a:</label>
-  <select name="user_type">
-    <option value="Buyer">Buyer</option>
-    <option value="Seller">Seller</option>
-    <option value="Both">Both</option>
-  </select>
-
-      <div class="product-container">
-        <!-- Buyer Products -->
-        <div class="product-section">
-          <!-- Buyer Products -->
-<div class="product-section">
-  <h3 style="color: #aaffaa;">What products are you looking to buy?</h3>
-
-  <div class="checkbox-columns">
-    <div class="checkbox-column"> 
-      <label><input type="checkbox" name="buyer_products" value="CBD Isolates" />CBD Isolates</label>
-      <label><input type="checkbox" name="buyer_products" value="CBN" />CBN</label>
-      <label><input type="checkbox" name="buyer_products" value="Flower" />Flower</label>
-      <label><input type="checkbox" name="buyer_products" value="CBD Biomass" />CBD Biomass</label>
-      <label><input type="checkbox" name="buyer_products" value="THC Biomass" />THC Biomass</label>
-      <label><input type="checkbox" name="buyer_products" value="CBD Kief" />CBD Kief</label>
-      <label><input type="checkbox" name="buyer_products" value="THC Kief" />THC Kief</label>
-    </div>
-
-    <div class="checkbox-column">
-      <label><input type="checkbox" name="buyer_products" value="Gummies" />Gummies</label>
-      <label><input type="checkbox" name="buyer_products" value="Edibles" />Edibles</label>
-      <label><input type="checkbox" name="buyer_products" value="Seeds" />Seeds</label>
-      <label><input type="checkbox" name="buyer_products" value="THC Flower" />THC Flower</label>
-      <label><input type="checkbox" name="buyer_products" value="CBD Flower" />CBD Flower</label>
-      <label><input type="checkbox" name="buyer_products" value="CBD Hash" />CBD Hash</label>
-      <label><input type="checkbox" name="buyer_products" value="THC Hash" />THC Hash</label>
-    </div>
-  </div>
+<div class="form-footer">
+  <textarea name="requirements" placeholder="Requirements"></textarea>
+  <button type="submit">Submit</button>
 </div>
-<h3 style="color: #aaffaa;">What products are you selling?</h3>
 
-<div class="checkbox-columns">
-  <div class="checkbox-column">
-    <label><input type="checkbox" name="seller_products" value="CBD Isolates" />CBD Isolates</label>
-    <label><input type="checkbox" name="seller_products" value="CBN" />CBN</label>
-    <label><input type="checkbox" name="seller_products" value="Flower" />Flower</label>
-    <label><input type="checkbox" name="seller_products" value="CBD Biomass" />CBD Biomass</label>
-    <label><input type="checkbox" name="seller_products" value="THC Biomass" />THC Biomass</label>
-    <label><input type="checkbox" name="seller_products" value="CBD Kief" />CBD Kief</label>
-    <label><input type="checkbox" name="seller_products" value="THC Kief" />THC Kief</label>
-  </div>
 
-  <div class="checkbox-column">
-    <label><input type="checkbox" name="seller_products" value="Gummies" />Gummies</label>
-    <label><input type="checkbox" name="seller_products" value="Edibles" />Edibles</label>
-    <label><input type="checkbox" name="seller_products" value="Seeds" />Seeds</label>
-    <label><input type="checkbox" name="seller_products" value="THC Flower" />THC Flower</label>
-    <label><input type="checkbox" name="seller_products" value="CBD Flower" />CBD Flower</label>
-    <label><input type="checkbox" name="seller_products" value="CBD Hash" />CBD Hash</label>
-    <label><input type="checkbox" name="seller_products" value="THC Hash" />THC Hash</label>
-  </div>
-</div>
-      <div class="form-footer">
-        <textarea name="requirements" placeholder="Requirements"></textarea>
-        <button type="submit">Submit</button>
-      </div>
-    </form>
-  </main>
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-  import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+  
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAq2dhntiRGQ10DnKZlxEQr4lDiYrgnYnA",
-    authDomain: "mc-cannabis-collectives-5ba0a.firebaseapp.com",
-    databaseURL: "https://mc-cannabis-collectives-5ba0a-default-rtdb.firebaseio.com",
-    projectId: "mc-cannabis-collectives-5ba0a",
-    storageBucket: "mc-cannabis-collectives-5ba0a.appspot.com",
-    messagingSenderId: "557664144063",
-    appId: "1:557664144063:web:2610cef342a19c04dd940a"
-  };
 
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
 
-  document.getElementById("BuyerSellerForm").addEventListener("submit", function (e) {
-    e.preventDefault();
 
-    const form = document.getElementById("BuyerSellerForm");
 
-    const data = {
-      company_name: form.company_name.value,
-      contact_name: form.contact_name.value,
-      phone: form.phone.value,
-      email: form.email.value,
-      website: form.website.value,
-      address: form.address.value,
-      user_type: form.user_type.value,
-      buyer_products: [...form.querySelectorAll('input[name="buyer_products"]:checked')].map(el => el.value),
-      seller_products: [...form.querySelectorAll('input[name="seller_products"]:checked')].map(el => el.value),
-      requirements: form.requirements.value,
-      timestamp: new Date().toISOString()
-    };
-
-    push(ref(db, "form_submissions"), data)
-      .then(() => {
-        alert("Form submitted successfully!");
-        form.reset();
-      })
-      .catch((error) => {
-        alert("Error submitting form: " + error.message);
-      });
-  });
-</script>
-</body>
-</html>
