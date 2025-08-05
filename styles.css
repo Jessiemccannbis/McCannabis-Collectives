@@ -46,52 +46,50 @@ form input, form select, form textarea {
   <style>
 .site-header {
   background-color: #1b2d21;
-  padding: 10px 20px;
+  padding: 15px 20px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 10px;
-  color: #aaffaa;
 }
 
-.site-header h1 {
-  font-size: 18px;
+.site-header h1.glow {
+  font-size: 22px;
   margin: 0;
   color: #aaffaa;
+  text-shadow: 0 0 8px #66ff66, 0 0 12px #33cc33;
 }
 
 .site-header nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
 }
 
 .site-header nav a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  font-size: 14px;
-  padding: 4px 0;
+  font-size: 16px;
 }
 
-/* Mobile fix */
-@media (max-width: 768px) {
+/* Desktop layout */
+@media (min-width: 768px) {
   .site-header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
-    gap: 5px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .site-header nav {
-    flex-direction: column;
-    width: 100%;
+    flex-direction: row;
+    gap: 20px;
+    width: auto;
   }
 
   .site-header nav a {
-    font-size: 16px;
-    margin: 2px 0;
+    font-size: 14px;
   }
 }
 .checkbox-columns {
