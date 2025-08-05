@@ -44,6 +44,39 @@ form input, form select, form textarea {
 }
 <head>
 <style>
+.main-header {
+  background-color: #1b2d21;
+  padding: 15px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Push all to the left */
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 20px;
+  color: #aaffaa;
+  margin: 0;
+  text-shadow: 0 0 5px #33cc33, 0 0 10px #66ff66;
+  font-weight: bold;
+  margin-right: auto; /* Push nav to the right of logo if needed */
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.main-nav a {
+  color: #fff;
+  background-color: #2a4031;
+  padding: 8px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
 .checkbox-columns {
   display: flex;
