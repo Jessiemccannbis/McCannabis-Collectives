@@ -113,8 +113,3 @@ form input, form select, form textarea {
   white-space: nowrap;
   margin-bottom: 10px;
 }
-@media (max-width: 600px) {
-  .checkbox-columns label {
-    width: 100%;
-  }
-}
