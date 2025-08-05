@@ -44,8 +44,9 @@ form input, form select, form textarea {
 }
 <head>
 <style>
-/* HEADER STYLING */
-.custom-header {
+/* HEADER STYLING FIX */
+
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,11 +55,10 @@ form input, form select, form textarea {
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 2px solid #0f3;
 }
 
-/* LEFT SIDE - LOGO */
-.logo {
+/* Logo Style */
+header div {
   font-size: 2.5rem;
   font-family: 'Comic Sans MS', cursive, sans-serif;
   font-weight: bold;
@@ -66,41 +66,44 @@ form input, form select, form textarea {
   text-shadow: 0 0 10px #98ff98, 0 0 20px #4caf50;
 }
 
-/* RIGHT SIDE - NAV LINKS */
-.nav-links {
+/* Navigation links */
+header nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
-.nav-links a {
-  color: white;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  font-size: 1.2rem;
+header nav a {
   background-color: #1b1b1b;
   padding: 0.5rem 1rem;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 1.1rem;
   text-decoration: none;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
 }
 
-.nav-links a:hover {
+header nav a:hover {
   background-color: #2f2f2f;
   box-shadow: 0 0 12px white;
   transform: scale(1.05);
 }
 
-/* RESPONSIVE */
+/* Mobile layout */
 @media (max-width: 768px) {
-  .custom-header {
+  header {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .nav-links {
-    margin-top: 1rem;
+  header nav {
     flex-wrap: wrap;
-    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  header nav a {
+    margin-bottom: 0.5rem;
   }
 }
 
