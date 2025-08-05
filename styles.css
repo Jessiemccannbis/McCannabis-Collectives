@@ -44,58 +44,63 @@ form input, form select, form textarea {
 }
 <head>
 <style>
-/* Force header layout on all screen sizes */
-header {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  flex-wrap: wrap !important;
+/* HEADER STYLING */
+.custom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #041f1b;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid #0f3;
 }
 
-/* Logo styling */
-header h1 {
-  text-shadow: 0 0 5px #33cc33, 0 0 10px #66ff66 !important;
-  color: #aaffaa !important;
-  font-size: 20px !important;
-  margin: 0 !important;
+/* LEFT SIDE - LOGO */
+.logo {
+  font-size: 2.5rem;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-weight: bold;
+  color: #98ff98;
+  text-shadow: 0 0 10px #98ff98, 0 0 20px #4caf50;
 }
 
-/* Nav container override */
-header nav {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 10px !important;
-  justify-content: flex-start !important;
+/* RIGHT SIDE - NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
 }
 
-/* Nav links styling */
-header nav a {
-  color: #fff !important;
-  background-color: #2a4031 !important;
-  padding: 8px 14px !important;
-  border-radius: 20px !important;
-  text-decoration: none !important;
-  font-weight: bold !important;
-  font-size: 14px !important;
+.nav-links a {
+  color: white;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 1.2rem;
+  background-color: #1b1b1b;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-/* Responsive adjustments for smaller screens */
+.nav-links a:hover {
+  background-color: #2f2f2f;
+  box-shadow: 0 0 12px white;
+  transform: scale(1.05);
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  header {
-    flex-direction: column !important;
-    align-items: flex-start !important;
+  .custom-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  header nav {
-    width: 100% !important;
-    margin-top: 10px !important;
-    justify-content: flex-start !important;
-  }
-  
-  header nav a {
-    margin-bottom: 8px !important;
-    width: 100% !important;
-    text-align: center !important;
+
+  .nav-links {
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 }
 
