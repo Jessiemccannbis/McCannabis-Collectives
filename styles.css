@@ -53,17 +53,18 @@ form input, form select, form textarea {
   gap: 10px;
 }
 
-.site-header h1.glow {
+.site-header .glow {
   font-size: 22px;
   margin: 0;
   color: #aaffaa;
   text-shadow: 0 0 8px #66ff66, 0 0 12px #33cc33;
 }
 
+/* Nav styling */
 .site-header nav {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   width: 100%;
 }
 
@@ -74,7 +75,7 @@ form input, form select, form textarea {
   font-size: 16px;
 }
 
-/* Desktop layout */
+/* Desktop styles */
 @media (min-width: 768px) {
   .site-header {
     flex-direction: row;
@@ -92,6 +93,7 @@ form input, form select, form textarea {
     font-size: 14px;
   }
 }
+
 .checkbox-columns {
   display: flex;
   flex-wrap: wrap;
