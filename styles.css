@@ -64,15 +64,17 @@ form input, form select, form textarea {
 }
 
 .site-nav a {
-  background-color: #1b1b1b;
-  color: white;
+  color: #f5f5dc;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-family: 'Poppins', sans-serif;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  transition: color 0.3s ease;
+}
+
+.site-nav a:hover {
+  color: #98ff98;
 }
 
 .site-nav a:hover {
