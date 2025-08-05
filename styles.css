@@ -44,27 +44,33 @@ form input, form select, form textarea {
 }
 <head>
 <style>
+/* Header container */
 .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
   background-color: #041f1b;
-  padding: 1.2rem 2rem;
   border-bottom: 2px solid #4caf50;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-.site-title {
+/* Title styling - stack Mc’Cannabis and Collectives */
+.glow-text {
   font-size: 2.8rem;
   font-family: 'Poppins', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   color: #98ff98;
-  text-shadow: 0 0 6px #98ff98, 0 0 10px #4caf50;
-  letter-spacing: 1px;
+  text-shadow: 0 0 6px #98ff98, 0 0 12px #4caf50;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  white-space: pre-line; /* allows line breaks */
 }
 
+/* Navigation links */
 .site-nav {
   display: flex;
   gap: 1.2rem;
@@ -74,20 +80,21 @@ form input, form select, form textarea {
   background-color: #1b1b1b;
   color: white;
   text-decoration: none;
-  padding: 0.6rem 1rem;
-  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
   font-size: 1rem;
   font-family: 'Poppins', sans-serif;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
 }
 
 .site-nav a:hover {
   background-color: #2f2f2f;
-  box-shadow: 0 0 10px white;
+  box-shadow: 0 0 12px white;
   transform: scale(1.05);
 }
 
+/* Mobile view */
 @media (max-width: 768px) {
   .site-header {
     flex-direction: column;
