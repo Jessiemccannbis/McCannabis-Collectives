@@ -4,121 +4,265 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Member Login – McCannabis Collectives</title>
-<link rel="stylesheet" href="style.css" />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-<style>
-  header {
-    background-color: #1b2d21;
-    padding: 15px 30px;
-  }
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0e1e14;
+      font-family: 'Poppins', sans-serif;
+      color: #f5f5dc;
+      margin: 0;
+      padding: 0;
+    }
 
-  header h1 {
-    font-size: 20px;
-    color: #aaffaa;
-    margin: 0;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-  }
-
-  /* Mobile: Stack links vertically */
-  @media (max-width: 600px) {
-    nav {
-      flex-direction: column;
+    .site-header {
+      display: flex;
+      justify-content: space-between;
       align-items: flex-start;
+      background-color: #1b2d21;
+      padding: 20px 30px;
+      border-bottom: 2px solid #4caf50;
     }
 
-    nav a {
-      margin-bottom: 8px;
+    .glow-text {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #98ff98;
+      text-shadow: 0 0 6px #98ff98, 0 0 12px #4caf50;
+      line-height: 1.2;
+      white-space: pre-line;
+      margin: 0;
     }
-  }
-</style>
-<header class="site-header">
-  <h1 class="glow-text">Mc’Cannabis <br> Collectives</h1>
-  <nav class="site-nav">
-    <a href="index.html">Home</a>
-    <a href="form.html">Buyer/Seller Form</a>
-    <a href="cartoon.html">Watch Cartoon</a>
-    <a href="login.html">Member Login</a>
-    <a href="signup.html">Sign Up</a>
-  </nav>
-     
 
+    .site-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    .site-nav a {
+      color: #f5f5dc;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .site-nav a:hover {
+      color: #98ff98;
+      text-decoration: underline;
+    }
+
+    .login-box {
+      max-width: 400px;
+      margin: 4rem auto;
+      background: #1f3326;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(152, 255, 152, 0.1);
+    }
+
+    .login-box h2 {
+      text-align: center;
+      color: #98ff98;
+      margin-bottom: 1.5rem;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #1f4033;
+      color: white;
+    }
+
+    .btn-green {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-green:hover {
+      background-color: #3b9442;
+    }
+
+    .google-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 0.75rem;
+      background-color: transparent;
+      color: #f5f5dc;
+      border: 2px solid #4caf50;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-top: 1rem;
+    }
+
+    .google-btn:hover {
+      background-color: #1f4033;
+      transform: scale(1.02);
+    }
+
+    .google-btn img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .btn-link {
+      width: 100%;
+      background: none;
+      border: none;
+      color: #98ff98;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .site-nav {
+        align-items: flex-start;
+        margin-top: 1rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  
+  <!-- ✅ Correctly placed header -->
+  <header class="site-header">
+    <h1 class="glow-text">Mc’Cannabis <br> Collectives</h1>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="form.html">Buyer/Seller Form</a>
+      <a href="cartoon.html">Watch Cartoon</a>
+      <a href="login.html">Member Login</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </header>
+
+  <!-- ✅ Login Box -->
   <div class="login-box">
     <h2>Member Login</h2>
 
     <form id="emailSignInForm">
       <input type="email" name="email" placeholder="Email" required />
       <input type="password" name="password" placeholder="Password" required />
-      <button type="submit">Sign in with Email</button>
+      <button type="submit" class="btn-green">Sign in with Email</button>
     </form>
 
-    <button id="googleSignIn" class="google-btn">Sign in with Google</button>
-    <button id="signUpBtn" class="signup-btn">Don’t have an account? Sign Up</button>
+    <button id="googleSignIn" class="google-btn">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google logo" />
+      Sign in with Google
+    </button>
+
+    <button id="signUpBtn" class="btn-link">Don’t have an account? Sign Up</button>
   </div>
 
-  <!-- Firebase + Auth -->
+  <!-- ✅ Firebase Script -->
   <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
-  import {
-    getAuth,
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-    GoogleAuthProvider,
-    signInWithPopup
-  } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
-  import {
-    getDatabase,
-    ref,
-    set,
-    push
-  } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      GoogleAuthProvider,
+      signInWithPopup
+    } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+    import {
+      getDatabase,
+      ref,
+      set,
+      push
+    } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAq2dhntiRGQ10DnKZlxEQr4lDiYrgnYnA",
-    authDomain: "mc-cannabis-collectives-5ba0a.firebaseapp.com",
-    databaseURL: "https://mc-cannabis-collectives-5ba0a-default-rtdb.firebaseio.com",
-    projectId: "mc-cannabis-collectives-5ba0a",
-    storageBucket: "mc-cannabis-collectives-5ba0a.appspot.com",
-    messagingSenderId: "557664144063",
-    appId: "1:557664144063:web:2610cef342a19c04dd940a"
-  };
+    const firebaseConfig = {
+      apiKey: "AIzaSyAq2dhntiRGQ10DnKZlxEQr4lDiYrgnYnA",
+      authDomain: "mc-cannabis-collectives-5ba0a.firebaseapp.com",
+      databaseURL: "https://mc-cannabis-collectives-5ba0a-default-rtdb.firebaseio.com",
+      projectId: "mc-cannabis-collectives-5ba0a",
+      storageBucket: "mc-cannabis-collectives-5ba0a.appspot.com",
+      messagingSenderId: "557664144063",
+      appId: "1:557664144063:web:2610cef342a19c04dd940a"
+    };
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getDatabase(app);
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
 
-  document.addEventListener("DOMContentLoaded", () => {
-    <!-- Email login form -->
-<form id="emailSignInForm">
-  <input type="email" name="email" placeholder="Email" required />
-  <input type="password" name="password" placeholder="Password" required />
-  <button type="submit" class="btn-green">Sign in with Email</button>
-</form>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Email login
+      document.getElementById("emailSignInForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
 
-<!-- Google login button -->
-<button id="googleSignIn" class="google-btn">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google logo" />
-  Sign in with Google
-</button>
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            const newLoginRef = push(ref(db, "loginLogs/" + user.uid));
+            return set(newLoginRef, {
+              email: user.email,
+              method: "email",
+              loginTime: new Date().toISOString()
+            });
+          })
+          .then(() => {
+            console.log("Login recorded");
+            window.location.href = "index.html";
+          })
+          .catch((error) => {
+            console.error("Login failed:", error);
+            alert(error.message);
+          });
+      });
 
-<!-- Sign up redirect -->
-<button id="signUpBtn" class="btn-link">Don’t have an account? Sign Up</button>
+      // Google login
+      document.getElementById("googleSignIn").addEventListener("click", () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+          .then((result) => {
+            const user = result.user;
+            const newLoginRef = push(ref(db, "loginLogs/" + user.uid));
+            return set(newLoginRef, {
+              email: user.email,
+              method: "google",
+              loginTime: new Date().toISOString()
+            });
+          })
+          .then(() => {
+            console.log("Google login recorded");
+            window.location.href = "index.html";
+          })
+          .catch((error) => {
+            console.error("Google login failed:", error);
+            alert(error.message);
+          });
+      });
+
+      // Redirect to signup page
+      document.getElementById("signUpBtn").addEventListener("click", () => {
+        window.location.href = "signup.html";
+      });
+    });
   </script>
 </body>
 </html>
