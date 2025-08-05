@@ -44,14 +44,12 @@ form input, form select, form textarea {
 }
 <head>
 <style>
-/* === HEADER STYLING === */
-
 .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 2rem;
   background-color: #041f1b;
+  padding: 1.2rem 2rem;
   border-bottom: 2px solid #4caf50;
   position: sticky;
   top: 0;
@@ -59,16 +57,17 @@ form input, form select, form textarea {
 }
 
 .site-title {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
   color: #98ff98;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  font-weight: bold;
-  text-shadow: 0 0 10px #98ff98, 0 0 20px #4caf50;
+  text-shadow: 0 0 6px #98ff98, 0 0 10px #4caf50;
+  letter-spacing: 1px;
 }
 
 .site-nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
 
 .site-nav a {
@@ -77,19 +76,18 @@ form input, form select, form textarea {
   text-decoration: none;
   padding: 0.6rem 1rem;
   border-radius: 12px;
-  font-size: 1.1rem;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.15);
   transition: all 0.3s ease;
 }
 
 .site-nav a:hover {
   background-color: #2f2f2f;
-  box-shadow: 0 0 12px white;
+  box-shadow: 0 0 10px white;
   transform: scale(1.05);
 }
 
-/* === MOBILE === */
 @media (max-width: 768px) {
   .site-header {
     flex-direction: column;
