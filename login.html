@@ -104,81 +104,21 @@
   const db = getDatabase(app);
 
   document.addEventListener("DOMContentLoaded", () => {
-    // Email login
-    document.getElementById("emailSignInForm").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const email = e.target.email.value;
-      const password = e.target.password.value;
+    <!-- Email login form -->
+<form id="emailSignInForm">
+  <input type="email" name="email" placeholder="Email" required />
+  <input type="password" name="password" placeholder="Password" required />
+  <button type="submit" class="btn-green">Sign in with Email</button>
+</form>
 
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          const newLoginRef = push(ref(db, "loginLogs/" + user.uid));
-          return set(newLoginRef, {
-            email: user.email,
-            method: "email",
-            loginTime: new Date().toISOString()
-          });
-        })
-        .then(() => {
-          console.log("Email login saved to Realtime DB");
-          window.location.href = "index.html";
-        })
-        .catch((error) => {
-          console.error("Login failed:", error);
-          alert(error.message);
-        });
-    });
+<!-- Google login button -->
+<button id="googleSignIn" class="google-btn">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google logo" />
+  Sign in with Google
+</button>
 
-    // Google login
-    document.getElementById("googleSignIn").addEventListener("click", () => {
-      const provider = new GoogleAuthProvider();
-      signInWithPopup(auth, provider)
-        .then((result) => {
-          const user = result.user;
-          console.log("Google user signed in:", user.email);
-          const newLoginRef = push(ref(db, "loginLogs/" + user.uid));
-          return set(newLoginRef, {
-            email: user.email,
-            method: "google",
-            loginTime: new Date().toISOString()
-          });
-        })
-        .then(() => {
-          console.log("Google login saved to DB");
-          window.location.href = "index.html";
-        })
-        .catch((error) => {
-          console.error("Google login failed:", error);
-          alert(error.message);
-        });
-    });
-
-    // Sign Up
-    document.getElementById("signUpBtn").addEventListener("click", () => {
-      const email = prompt("Enter your email:");
-      const password = prompt("Enter a password:");
-
-      if (email && password) {
-        createUserWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            const user = userCredential.user;
-            return set(ref(db, "users/" + user.uid), {
-              email: user.email,
-              method: "email",
-              createdAt: new Date().toISOString()
-            });
-          })
-          .then(() => {
-            alert("Account created! Redirecting...");
-            window.location.href = "index.html";
-          })
-          .catch((error) => {
-            alert(error.message);
-          });
-      }
-    });
-  });
+<!-- Sign up redirect -->
+<button id="signUpBtn" class="btn-link">Don’t have an account? Sign Up</button>
   </script>
 </body>
 </html>
