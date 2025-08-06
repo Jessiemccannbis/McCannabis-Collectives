@@ -97,34 +97,35 @@ form input, form select, form textarea {
 
    /* === Product Section Heading === */
 .product-section {
-  margin-bottom: 2em;
+  margin: 2em 0;
+  text-align: left; /* Ensure the whole section is left-aligned */
 }
 
 .product-heading {
-  text-align: center;
+  text-align: left;
   color: #aaffaa;
   font-size: 22px;
   font-family: 'Poppins', sans-serif;
   margin-bottom: 1em;
+  padding-left: 1em; /* slight padding to line it up nicely */
 }
 
-/* Layout two columns */
 .checkbox-columns {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 50px;
+  justify-content: flex-start;
+  gap: 3rem;
+  padding-left: 1em;
 }
 
-/* Each column holds checkboxes stacked vertically */
 .checkbox-column {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   min-width: 220px;
+  align-items: flex-start;
 }
 
-/* Align checkbox and text horizontally */
 .checkbox-column label {
   display: flex;
   align-items: center;
@@ -138,5 +139,5 @@ form input, form select, form textarea {
   margin-right: 10px;
   transform: scale(1.2);
   accent-color: #4caf50;
+  cursor: pointer;
 }
-  
