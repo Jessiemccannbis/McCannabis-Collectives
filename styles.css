@@ -94,7 +94,6 @@ form input, form select, form textarea {
     align-items: flex-start;
     margin-top: 1rem;
   }
-}
 /* ========== CHECKBOX COLUMNS ========== */
 /* ==== FORM HEADINGS ==== */
 .product-heading {
@@ -104,23 +103,17 @@ form input, form select, form textarea {
   margin: 40px 0 20px;
   font-family: 'Poppins', sans-serif;
 }
-
-.checkbox-columns {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 50px;
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 40px;
+  justify-items: start;
   margin-bottom: 30px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
-.checkbox-column {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  min-width: 240px;
-}
-
-.checkbox-column label {
+.checkbox-grid label {
   display: flex;
   align-items: center;
   font-size: 16px;
@@ -128,7 +121,7 @@ form input, form select, form textarea {
   font-family: 'Poppins', sans-serif;
 }
 
-.checkbox-column input[type="checkbox"] {
+.checkbox-grid input[type="checkbox"] {
   margin-right: 10px;
   transform: scale(1.2);
   accent-color: #4caf50;
