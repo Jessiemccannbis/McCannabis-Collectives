@@ -105,12 +105,11 @@ form input, form select, form textarea {
   font-family: 'Poppins', sans-serif;
 }
 
-/* ==== CHECKBOX LAYOUT ==== */
 .checkbox-columns {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
+  flex-wrap: wrap;
+  gap: 50px;
   margin-bottom: 30px;
 }
 
@@ -118,7 +117,7 @@ form input, form select, form textarea {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  min-width: 250px;
+  min-width: 240px;
 }
 
 .checkbox-column label {
