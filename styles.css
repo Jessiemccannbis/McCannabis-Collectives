@@ -94,9 +94,7 @@ form input, form select, form textarea {
     align-items: flex-start;
     margin-top: 1rem;
   }
-}
-<head>
-  <style>
+
    /* === Product Section Heading === */
 .product-section {
   margin-bottom: 2em;
@@ -141,5 +139,4 @@ form input, form select, form textarea {
   transform: scale(1.2);
   accent-color: #4caf50;
 }
-  </style>
-</head>
+  
