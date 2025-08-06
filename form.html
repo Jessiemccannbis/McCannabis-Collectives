@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -13,116 +12,104 @@
       color: white;
       margin: 0;
       padding: 0;
-    }
+    }header {
+  background-color: #1b2d21;
+  padding: 15px 30px;
+}
 
-    header {
-      background-color: #1b2d21;
-      padding: 15px 30px;
-    }
+.glow-text {
+  font-size: 24px;
+  color: #aaffaa;
+  text-shadow: 0 0 10px #aaffaa, 0 0 20px #55ff99;
+  margin: 0;
+}
 
-    .glow-text {
-      font-size: 24px;
-      color: #aaffaa;
-      text-shadow: 0 0 10px #aaffaa, 0 0 20px #55ff99;
-      margin: 0;
-    }
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 10px;
-    }
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-    }
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #1f3326;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0, 255, 100, 0.1);
+}
 
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 30px;
-      background: #1f3326;
-      border-radius: 16px;
-      box-shadow: 0 0 15px rgba(0, 255, 100, 0.1);
-    }
+h2 {
+  text-align: center;
+  color: #aaffaa;
+  margin-bottom: 30px;
+}
 
-    h2 {
-      text-align: center;
-      color: #aaffaa;
-      margin-bottom: 30px;
-    }
+label {
+  display: block;
+  margin-bottom: 10px;
+}
 
-    label {
-      display: block;
-      margin-bottom: 10px;
-    }
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #233c2a;
+  color: white;
+}
 
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      border: none;
-      background-color: #233c2a;
-      color: white;
-    }
+textarea {
+  resize: vertical;
+}
 
-    textarea {
-      resize: vertical;
-    }
+.checkbox-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 40px;
+  margin-bottom: 20px;
+}
 
-    .checkbox-columns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
+.checkbox-columns label {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
 
-    .checkbox-column {
-      flex: 1;
-      min-width: 45%;
-    }
+button {
+  background-color: #aaffaa;
+  color: #0e1e14;
+  border: none;
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}
 
-    .checkbox-column label {
-      display: flex;
-      align-items: center;
-      margin-bottom: 8px;
-      font-size: 15px;
-    }
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    button {
-      background-color: #aaffaa;
-      color: #0e1e14;
-      border: none;
-      padding: 12px 24px;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-      width: 100%;
-      font-size: 16px;
-    }
+  .checkbox-columns {
+    grid-template-columns: 1fr;
+  }
+}
 
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .checkbox-columns {
-        flex-direction: column;
-      }
-
-      .checkbox-column {
-        min-width: 100%;
-      }
-    }
   </style>
-</head>
-
-<body>
+</head><body>
   <header class="site-header">
     <h1 class="glow-text">Mc’Cannabis <br> Collectives</h1>
     <nav class="site-nav">
@@ -132,96 +119,78 @@
       <a href="login.html">Member Login</a>
       <a href="signup.html">Sign Up</a>
     </nav>
-  </header>
-
-  <main>
+  </header>  <main>
     <h2>Buyer / Seller Form</h2>
     <form id="BuyerSellerForm">
-      <!-- Company Info -->
       <label>Company Name</label>
-      <input type="text" name="company_name" required>
+      <input type="text" name="company_name" required><label>Contact Name</label>
+  <input type="text" name="contact_name" required>
 
-      <label>Contact Name</label>
-      <input type="text" name="contact_name" required>
+  <label>Email</label>
+  <input type="email" name="email" required>
 
-      <label>Email</label>
-      <input type="email" name="email" required>
+  <label>Phone Number</label>
+  <input type="tel" name="phone" required>
 
-      <label>Phone Number</label>
-      <input type="tel" name="phone" required>
+  <label>Website</label>
+  <input type="url" name="website">
 
-      <label>Website</label>
-      <input type="url" name="website">
+  <label>Address</label>
+  <input type="text" name="address">
 
-      <label>Address</label>
-      <input type="text" name="address">
+  <label>Country</label>
+  <input type="text" name="country">
 
-      <label>Country</label>
-      <input type="text" name="country">
+  <label for="user_type">I am a:</label>
+  <select name="user_type" id="user_type" required>
+    <option value="Buyer">Buyer</option>
+    <option value="Seller">Seller</option>
+    <option value="Both">Both</option>
+  </select>
 
-      <!-- Type -->
-      <label for="user_type">I am a:</label>
-      <select name="user_type" id="user_type" required>
-        <option value="Buyer">Buyer</option>
-        <option value="Seller">Seller</option>
-        <option value="Both">Both</option>
-      </select>
+  <h3>Products You Are Buying:</h3>
+  <div class="checkbox-columns">
+    <label><input type="checkbox" name="buyer_products" value="CBD Isolates" /> CBD Isolates</label>
+    <label><input type="checkbox" name="buyer_products" value="CBN" /> CBN</label>
+    <label><input type="checkbox" name="buyer_products" value="Flower" /> Flower</label>
+    <label><input type="checkbox" name="buyer_products" value="CBD Biomass" /> CBD Biomass</label>
+    <label><input type="checkbox" name="buyer_products" value="THC Biomass" /> THC Biomass</label>
+    <label><input type="checkbox" name="buyer_products" value="CBD Kief" /> CBD Kief</label>
+    <label><input type="checkbox" name="buyer_products" value="THC Kief" /> THC Kief</label>
+    <label><input type="checkbox" name="buyer_products" value="Gummies" /> Gummies</label>
+    <label><input type="checkbox" name="buyer_products" value="Edibles" /> Edibles</label>
+    <label><input type="checkbox" name="buyer_products" value="Seeds" /> Seeds</label>
+    <label><input type="checkbox" name="buyer_products" value="THC Flower" /> THC Flower</label>
+    <label><input type="checkbox" name="buyer_products" value="CBD Flower" /> CBD Flower</label>
+    <label><input type="checkbox" name="buyer_products" value="CBD Hash" /> CBD Hash</label>
+    <label><input type="checkbox" name="buyer_products" value="THC Hash" /> THC Hash</label>
+  </div>
 
-      <!-- Buying -->
-      <h3>Products You Are Buying:</h3>
-      <div class="checkbox-columns">
-        <div class="checkbox-column">
-          <label><input type="checkbox" name="buyer_products" value="CBD Isolates" /> CBD Isolates</label>
-          <label><input type="checkbox" name="buyer_products" value="CBN" /> CBN</label>
-          <label><input type="checkbox" name="buyer_products" value="Flower" /> Flower</label>
-          <label><input type="checkbox" name="buyer_products" value="CBD Biomass" /> CBD Biomass</label>
-          <label><input type="checkbox" name="buyer_products" value="THC Biomass" /> THC Biomass</label>
-          <label><input type="checkbox" name="buyer_products" value="CBD Kief" /> CBD Kief</label>
-          <label><input type="checkbox" name="buyer_products" value="THC Kief" /> THC Kief</label>
-        </div>
-        <div class="checkbox-column">
-          <label><input type="checkbox" name="buyer_products" value="Gummies" /> Gummies</label>
-          <label><input type="checkbox" name="buyer_products" value="Edibles" /> Edibles</label>
-          <label><input type="checkbox" name="buyer_products" value="Seeds" /> Seeds</label>
-          <label><input type="checkbox" name="buyer_products" value="THC Flower" /> THC Flower</label>
-          <label><input type="checkbox" name="buyer_products" value="CBD Flower" /> CBD Flower</label>
-          <label><input type="checkbox" name="buyer_products" value="CBD Hash" /> CBD Hash</label>
-          <label><input type="checkbox" name="buyer_products" value="THC Hash" /> THC Hash</label>
-        </div>
-      </div>
+  <h3>Products You Are Selling:</h3>
+  <div class="checkbox-columns">
+    <label><input type="checkbox" name="seller_products" value="CBD Isolates" /> CBD Isolates</label>
+    <label><input type="checkbox" name="seller_products" value="CBN" /> CBN</label>
+    <label><input type="checkbox" name="seller_products" value="Flower" /> Flower</label>
+    <label><input type="checkbox" name="seller_products" value="CBD Biomass" /> CBD Biomass</label>
+    <label><input type="checkbox" name="seller_products" value="THC Biomass" /> THC Biomass</label>
+    <label><input type="checkbox" name="seller_products" value="CBD Kief" /> CBD Kief</label>
+    <label><input type="checkbox" name="seller_products" value="THC Kief" /> THC Kief</label>
+    <label><input type="checkbox" name="seller_products" value="Gummies" /> Gummies</label>
+    <label><input type="checkbox" name="seller_products" value="Edibles" /> Edibles</label>
+    <label><input type="checkbox" name="seller_products" value="Seeds" /> Seeds</label>
+    <label><input type="checkbox" name="seller_products" value="THC Flower" /> THC Flower</label>
+    <label><input type="checkbox" name="seller_products" value="CBD Flower" /> CBD Flower</label>
+    <label><input type="checkbox" name="seller_products" value="CBD Hash" /> CBD Hash</label>
+    <label><input type="checkbox" name="seller_products" value="THC Hash" /> THC Hash</label>
+  </div>
 
-      <!-- Selling -->
-      <h3>Products You Are Selling:</h3>
-      <div class="checkbox-columns">
-        <div class="checkbox-column">
-          <label><input type="checkbox" name="seller_products" value="CBD Isolates" /> CBD Isolates</label>
-          <label><input type="checkbox" name="seller_products" value="CBN" /> CBN</label>
-          <label><input type="checkbox" name="seller_products" value="Flower" /> Flower</label>
-          <label><input type="checkbox" name="seller_products" value="CBD Biomass" /> CBD Biomass</label>
-          <label><input type="checkbox" name="seller_products" value="THC Biomass" /> THC Biomass</label>
-          <label><input type="checkbox" name="seller_products" value="CBD Kief" /> CBD Kief</label>
-          <label><input type="checkbox" name="seller_products" value="THC Kief" /> THC Kief</label>
-        </div>
-        <div class="checkbox-column">
-          <label><input type="checkbox" name="seller_products" value="Gummies" /> Gummies</label>
-          <label><input type="checkbox" name="seller_products" value="Edibles" /> Edibles</label>
-          <label><input type="checkbox" name="seller_products" value="Seeds" /> Seeds</label>
-          <label><input type="checkbox" name="seller_products" value="THC Flower" /> THC Flower</label>
-          <label><input type="checkbox" name="seller_products" value="CBD Flower" /> CBD Flower</label>
-          <label><input type="checkbox" name="seller_products" value="CBD Hash" /> CBD Hash</label>
-          <label><input type="checkbox" name="seller_products" value="THC Hash" /> THC Hash</label>
-        </div>
-      </div>
+  <label>Requirements</label>
+  <textarea name="requirements" placeholder="Any special requirements or notes..." rows="5"></textarea>
 
-      <label>Requirements</label>
-      <textarea name="requirements" placeholder="Any special requirements or notes..." rows="5"></textarea>
+  <button type="submit">Submit</button>
+</form>
 
-      <button type="submit">Submit</button>
-    </form>
-  </main>
-
-  <!-- Firebase script -->
-  <script type="module">
+  </main>  <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
     import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
 
@@ -266,6 +235,5 @@
           alert("Error submitting form: " + error.message);
         });
     });
-  </script>
-</body>
+  </script></body>
 </html>
