@@ -97,7 +97,8 @@ form input, form select, form textarea {
 }
 <head>
   <style>
-   .product-heading {
+   /* === Product Section Heading === */
+.product-heading {
   text-align: center;
   color: #aaffaa;
   font-size: 20px;
@@ -105,14 +106,16 @@ form input, form select, form textarea {
   font-family: 'Poppins', sans-serif;
 }
 
+/* === Checkbox Columns Layout === */
 .checkbox-columns {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 50px;
+  justify-content: center;
+  gap: 40px; /* spacing between columns */
   margin-bottom: 30px;
 }
 
+/* === Each Column === */
 .checkbox-column {
   display: flex;
   flex-direction: column;
@@ -120,12 +123,14 @@ form input, form select, form textarea {
   min-width: 240px;
 }
 
+/* === Checkbox Label Styling === */
 .checkbox-column label {
   display: flex;
   align-items: center;
   font-size: 16px;
   color: #fff;
   font-family: 'Poppins', sans-serif;
+  cursor: pointer;
 }
 
 .checkbox-column input[type="checkbox"] {
