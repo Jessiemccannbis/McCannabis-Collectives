@@ -96,20 +96,41 @@ form input, form select, form textarea {
   }
 }
 /* ========== CHECKBOX COLUMNS ========== */
+/* Section Headings */
+.product-section h3 {
+  text-align: center;
+  color: #aaffaa;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+/* Container for columns */
 .checkbox-columns {
   display: flex;
   flex-wrap: wrap;
-  max-width: 700px;
-  margin: 0 auto;
-  gap: 15px 20px;
-  justify-content: flex-start;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
-.checkbox-columns label {
+/* Individual column of checkboxes */
+.checkbox-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 220px;
+}
+
+/* Checkbox label formatting */
+.checkbox-column label {
   display: flex;
   align-items: center;
-  width: 48%;
-  font-size: 14px;
-  white-space: nowrap;
-  margin-bottom: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.checkbox-column input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+  accent-color: #4caf50;
 }
