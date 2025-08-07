@@ -75,7 +75,7 @@ textarea {
 .checkbox-columns {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px 40px;
+  gap: 12px 30px;
   max-width: 800px;
   margin: 0 auto;
   align-items: start;
@@ -89,14 +89,21 @@ textarea {
   font-size: 16px;
   font-family: 'Poppins', sans-serif;
   color: #f5f5dc;
-  min-height: 40px;
   gap: 10px;
+  line-height: 1.4;
 }
 
 .checkbox-columns input[type="checkbox"] {
   transform: scale(1.1);
-  margin: 0;
   accent-color: #4caf50;
+  margin: 0;
+}
+
+/* Remove the 1-column rule for small screens */
+@media (max-width: 600px) {
+  .checkbox-columns {
+    grid-template-columns: repeat(2, 1fr); /* force 2 columns */
+  }
 }
 button {
   background-color: #aaffaa;
