@@ -6,17 +6,6 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
   <style>
-    .checkbox-columns {
-      display: grid !important;
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 1.5em !important;
-    }
-
-    .checkbox-column {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: flex-start !important;
-    {
     body {
       background-color: #0e1e14;
       font-family: 'Poppins', sans-serif;
@@ -85,15 +74,31 @@ textarea {
 
 .checkbox-columns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
   gap: 15px 40px;
+  justify-content: start;
   margin-bottom: 20px;
 }
 
-.checkbox-columns label {
+.checkbox-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* left-align checkboxes */
+  gap: 12px;
+}
+
+.checkbox-column label {
   display: flex;
   align-items: center;
   font-size: 15px;
+  color: #f5f5dc;
+  font-family: 'Poppins', sans-serif;
+}
+
+.checkbox-column input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+  accent-color: #4caf50;
 }
 
 button {
