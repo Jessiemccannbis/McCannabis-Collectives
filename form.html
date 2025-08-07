@@ -99,10 +99,13 @@ textarea {
   margin: 0;
 }
 
-/* Remove the 1-column rule for small screens */
-@media (max-width: 600px) {
+/* Override mobile layout for checkbox-columns */
+@media (max-width: 768px) {
   .checkbox-columns {
-    grid-template-columns: repeat(2, 1fr); /* force 2 columns */
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(140px, 1fr)) !important;
+    gap: 12px 20px !important;
+    justify-items: start !important;
   }
 }
 button {
