@@ -104,30 +104,26 @@ textarea {
 
 /* Override mobile layout for checkbox-columns */
 @media (max-width: 768px) {
-@media (max-width: 768px) {
   .checkbox-columns {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 20px 10px !important;
-    justify-items: start !important;
+    gap: 16px 20px !important;
     align-items: start !important;
   }
 
   .checkbox-columns label {
     display: flex !important;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    white-space: normal;
-    word-break: break-word;
+    align-items: center !important;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+    word-break: normal;
   }
 
-  .checkbox-columns label:nth-child(odd) {
-    justify-content: flex-start;
-  }
-
-  .checkbox-columns label:nth-child(even) {
-    justify-content: center;
+  .checkbox-columns input[type="checkbox"] {
+    flex-shrink: 0;
+    margin: 0;
   }
 }
 button {
