@@ -107,23 +107,24 @@ textarea {
   .checkbox-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px 16px;
-    padding: 10px 0;
+    gap: 16px 24px;
+    padding: 0 10px;
   }
 
-  .checkbox-item {
+  .checkbox-columns label {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 14px;
+    gap: 10px;
+    font-size: 15px;
     white-space: normal;
-    word-break: break-word;
     text-align: left;
+    line-height: 1.4;
+    font-weight: 600;
   }
 
-  .checkbox-item input[type="checkbox"] {
+  .checkbox-columns input[type="checkbox"] {
     margin: 0;
-    flex-shrink: 0;
+    transform: scale(1.2);
   }
 }
 button {
