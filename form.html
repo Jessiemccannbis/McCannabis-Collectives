@@ -126,6 +126,27 @@ textarea {
     flex-shrink: 0;
   }
 }
+    /* Safari-specific checkbox column fix */
+@supports (-webkit-touch-callout: none) {
+  .checkbox-columns {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(150px, 1fr)) !important;
+    gap: 10px 20px !important;
+    justify-items: start !important;
+    align-items: start !important;
+  }
+
+  .checkbox-columns label {
+    display: flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+  }
+
+  .checkbox-columns input[type="checkbox"] {
+    margin-right: 8px !important;
+    transform: scale(1.1) !important;
+  }
+}
 button {
   background-color: #aaffaa;
   color: #0e1e14;
