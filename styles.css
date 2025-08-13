@@ -94,3 +94,73 @@ form input, form select, form textarea {
     align-items: flex-start;
     margin-top: 1rem;
   }
+/* ---------- CROSS-BROWSER STABILIZERS ---------- */
+html { -webkit-text-size-adjust: 100%; }
+body { -webkit-font-smoothing: antialiased; }
+
+/* Your checkbox grid (desktop & tablet) */
+.checkbox-columns{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(180px,1fr));
+  gap:12px 24px;
+  align-items:start;
+  justify-items:start;
+}
+
+/* Force 2 columns on mobile */
+@media (max-width:768px){
+  .checkbox-columns{
+    grid-template-columns:repeat(2, minmax(140px,1fr)) !important;
+    gap:12px 16px !important;
+  }
+}
+
+/* Label + checkbox alignment */
+.checkbox-columns label{
+  display:inline-flex;           /* inline-flex behaves more consistently in Safari */
+  align-items:center;
+  gap:10px;                      /* visual space between box and text */
+  line-height:1.25;
+  text-align:left;
+  white-space:normal;            /* allow normal wrapping */
+  word-break:break-word;         /* prevent weird truncation */
+}
+
+/* Checkbox styling (avoid scaling bugs) */
+.checkbox-columns input[type="checkbox"]{
+  margin:0;                      /* rely on label gap */
+  accent-color:#4caf50;
+  vertical-align:middle;
+}
+
+/* ---------- SAFARI-SPECIFIC FIXES ---------- */
+/* This @supports block only matches WebKit/Safari */
+@supports (-webkit-touch-callout: none){
+
+  /* Safari sometimes centers grid items unexpectedly;
+     lock them to the start */
+  .checkbox-columns{
+    justify-items:start !important;
+    align-items:start !important;
+  }
+
+  /* Scaling checkboxes can cause vertical misalignment in Safari.
+     Remove transform and set explicit size instead. */
+  .checkbox-columns input[type="checkbox"]{
+    -webkit-appearance: auto;    /* keep native checkbox */
+    appearance: auto;
+    width:18px; height:18px;     /* visually “bigger” without transform */
+  }
+
+  /* Older Safari versions don’t support flex gap reliably;
+     ensure spacing even if gap fails */
+  .checkbox-columns label{ gap:8px; }
+  .checkbox-columns label > input[type="checkbox"]{ margin-right:8px; }
+}
+
+/* ---------- FLEX GAP FALLBACK (nav) ---------- */
+/* If you use gap on .site-nav, add this fallback so old Safari doesn’t collapse spacing */
+.site-nav a + a{ margin-top:0.6rem; }
+@supports (gap: 1rem){
+  .site-nav a + a{ margin-top:0; }
+}
